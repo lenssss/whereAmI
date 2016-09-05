@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoEditingViewController">
+            <connections>
+                <outlet property="filterScrollView" destination="n56-jx-k5d" id="IjR-v2-9RG"/>
+                <outlet property="myPhotoImageView" destination="Evx-dG-aWo" id="PO4-db-BaX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-dG-aWo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Evx-dG-aWo" secondAttribute="height" multiplier="1:1" id="XOj-J5-wvP"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ylc-dN-9Hk" userLabel="BottomBgView">
+                    <rect key="frame" x="0.0" y="375" width="375" height="292"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n56-jx-k5d">
+                            <rect key="frame" x="0.0" y="162" width="375" height="120"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="of6-Eu-j3y"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="n56-jx-k5d" secondAttribute="bottom" constant="10" id="1rg-2o-ErQ"/>
+                        <constraint firstAttribute="trailing" secondItem="n56-jx-k5d" secondAttribute="trailing" id="dwm-x5-ZV5"/>
+                        <constraint firstItem="n56-jx-k5d" firstAttribute="leading" secondItem="Ylc-dN-9Hk" secondAttribute="leading" id="j4A-aA-2gY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ylc-dN-9Hk" firstAttribute="top" secondItem="Evx-dG-aWo" secondAttribute="bottom" id="3O9-hg-b9U"/>
+                <constraint firstItem="Evx-dG-aWo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6oE-cd-DQH"/>
+                <constraint firstAttribute="bottom" secondItem="Evx-dG-aWo" secondAttribute="bottom" constant="150" id="CWz-Ii-yfs"/>
+                <constraint firstItem="Ylc-dN-9Hk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XfM-h3-E6A"/>
+                <constraint firstAttribute="bottom" secondItem="Ylc-dN-9Hk" secondAttribute="bottom" id="apQ-Cz-axB"/>
+                <constraint firstAttribute="trailing" secondItem="Ylc-dN-9Hk" secondAttribute="trailing" id="cTD-iC-sJS"/>
+                <constraint firstItem="Evx-dG-aWo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="djx-Hp-5eK"/>
+                <constraint firstAttribute="trailing" secondItem="Evx-dG-aWo" secondAttribute="trailing" id="rOH-BV-N3Y"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="CWz-Ii-yfs"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="453.5" y="319.5"/>
+        </view>
+    </objects>
+</document>

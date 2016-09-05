@@ -1,0 +1,107 @@
+PODS:
+  - AVOSCloud (3.3.5)
+  - AVOSCloudIM (3.3.5):
+    - AVOSCloud
+  - BABCropperView (0.5.0)
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - DACircularProgress (2.3.1)
+  - DKImagePickerController (3.3.2):
+    - DKImagePickerController/Camera (= 3.3.2)
+    - DKImagePickerController/ImageManager (= 3.3.2)
+  - DKImagePickerController/Camera (3.3.2)
+  - DKImagePickerController/ImageManager (3.3.2)
+  - FBSDKCoreKit (4.13.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.13.1):
+    - FBSDKCoreKit
+  - Google-Mobile-Ads-SDK (7.8.0)
+  - JAMSVGImage (1.6.1)
+  - Kingfisher (2.4.0)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - MaterialControls (1.0.2)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - MWPhotoBrowser (2.1.2):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
+  - pop (1.0.9)
+  - PureLayout (3.0.1)
+  - ReactiveCocoa (4.1.0):
+    - ReactiveCocoa/UI (= 4.1.0)
+    - Result (~> 2.0)
+  - ReactiveCocoa/Core (4.1.0):
+    - ReactiveCocoa/no-arc
+    - Result (~> 2.0)
+  - ReactiveCocoa/no-arc (4.1.0):
+    - Result (~> 2.0)
+  - ReactiveCocoa/UI (4.1.0):
+    - ReactiveCocoa/Core
+    - Result (~> 2.0)
+  - Result (2.0.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - Socket.IO-Client-Swift (6.1.1)
+  - SVProgressHUD (2.0.3)
+  - SWTableViewCell (0.3.7)
+  - UMengAnalytics-NO-IDFA (4.0.5)
+
+DEPENDENCIES:
+  - AVOSCloud (~> 3.3.5)
+  - AVOSCloudIM (~> 3.3.5)
+  - BABCropperView
+  - DKImagePickerController
+  - FBSDKLoginKit (~> 4.13.1)
+  - Google-Mobile-Ads-SDK (~> 7.8.0)
+  - JAMSVGImage
+  - Kingfisher
+  - MagicalRecord
+  - MaterialControls
+  - MJRefresh
+  - MWPhotoBrowser
+  - pop
+  - PureLayout
+  - ReactiveCocoa
+  - Socket.IO-Client-Swift
+  - SVProgressHUD
+  - SWTableViewCell
+  - UMengAnalytics-NO-IDFA
+
+SPEC CHECKSUMS:
+  AVOSCloud: 1fe170768bee7e05bc3ea86e38d5bddb105cb957
+  AVOSCloudIM: dc307c48e951fcd861f4ae6db6d807e7b40639c8
+  BABCropperView: 8a4d5e6b5bf6e7a2da7937e4bf861e969e3f993a
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DKImagePickerController: 416dab2d42caaf4ca681baca9c2d533895a8c1a2
+  FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
+  FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
+  Google-Mobile-Ads-SDK: 36b88dd2373f0ee4583e65971cb07b6965c29eef
+  JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
+  Kingfisher: 9171a424ee7f8031f518f649bb850d1eab541247
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  MaterialControls: bdeeb94aa049b73f70739a5514be137d2d45c08a
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
+  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  Socket.IO-Client-Swift: 86a3744e1da181a4078a24a632bd3acc34b9f1f5
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  UMengAnalytics-NO-IDFA: 965a219b05475ff2a4c09a164139a27bbaa0e25b
+
+PODFILE CHECKSUM: 00c608a35ed9701caa7e32bd0f23301d3beb6c46
+
+COCOAPODS: 1.0.1

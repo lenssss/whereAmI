@@ -1,0 +1,229 @@
+/* 
+  Localizable.strings
+  Whereami
+
+  Created by A on 16/4/14.
+  Copyright © 2016年 WuQifei. All rights reserved.
+*/
+/*
+"full" = "满";
+"cityRank" = "世界排行";
+"allRank" = "总排行";
+"personalRank" = "朋友排行";
+"publish" = "发布";
+"Borign" = "无聊";
+"Fun" = "好玩";
+"Continue" = "继续";
+"report" = "举报";
+"enterGame" = "该您了,立即进入战斗？";
+"later" = "稍后";
+"go" = "进入";
+"congratulations" = "恭喜";
+"levelUp" = "升级到等级";
+"danUp" = "升级到段位";
+"ok" = "OK";
+"Game" = "游戏";
+"Contact" = "好友";
+"Chat" = "聊天";
+"Personal" = "个人";
+"challengeFriend" = "挑战好友";
+"namingChallenge"="命名挑战";
+"next" = "Next";
+"friend" = "好友";
+"added" = "已添加";
+"add" = "添加";
+"ready" = "准备好了吗？";
+"start" = "开始";
+"play" = "开始";
+"chooseOpponents" = "选择好友";
+"yourTurn" = "该你了";
+"wait" = "换他们了";
+"end" = "已结束";
+"moreStatus" = "更多";
+"enter" = "准备进入战斗？";
+"overtime" = "战斗超时";
+"Delete" = "删除";
+"Again" = "重来";
+"playAgain" = "再玩一次";
+"score" = "分数";
+"right" = "正确";
+"time" = "时间";
+"newGame" = "新游戏";
+"selectCountry" = "选择你要挑战的国家";
+"gameMode" = "游戏模式";
+"classic" = "经典";
+"challenge" = "挑战";
+"friends" = "朋友";
+"random" = "随机";
+"playGame" = "开始游戏";
+"warning" = "警告";
+"chooseCountry" = "请选择国家";
+"endGame" = "游戏结束";
+"questionTitle" = "题目";
+"trueAnswer" = "正确答案";
+"wrongAnswer1" = "错误答案1";
+"wrongAnswer2" = "错误答案2";
+"wrongAnswer3" = "错误答案3";
+"photo" = "照相";
+"uploadQuestion" = "上传";
+"done" = "Done";
+"uploadToPool" = "上传至题库";
+"uploadToFriends" = "分享给好友";
+"cancel" = "取消";
+"fill" = "请全部填写";
+"share" = "分享至第三方";
+"uploadSuccess" = "上传成功";
+"selectKind" = "请选择分类";
+"selectRange" = "请选择国家";
+"signInFB" = "Facebook登录";
+"signInEmail" = "Email登录";
+"or" = "OR";
+"haveNoAccount" = "若您没有任何帐号，请先";
+"signUp" = "注册";
+"logError" = "密码错误";
+"emailPlaceholder" = "email@example.com";
+"passwordPlaceholder" = "password";
+"logout" = "注销";
+"enterEmail" = "Enter your email address";
+//TourRecordsViewController
+"COLLECT" = "COLLECT";
+"PERFORMANCE" = "PERFORMANCE";
+"TRAVELS" = "TRAVELS";
+"challengeTotal" = "Challenges played:";
+"level" = "Level";
+"changeCover" = "更换封面";
+"edit" = "Edit";
+"playNow" = "PLAY NOW";
+"message" = "MESSAGE";
+//PersonalPerformanceChallengesTableViewCell
+"challenges" = "Challenges";
+//PersonalPerformancePerformanceTableViewCell
+"performance" = "Performance";
+"won" = "Won";
+"lost" = "Lost";
+"resigned" = "Resigned";
+"achievements" = "Achievements";
+//PersonalFollowView
+"following" = "following";
+"followers" = "followers";
+//PersonalShopViewController
+"shop" = "商店";
+"featured" = "精选";
+"live" = "生命";
+"gem" = "宝石";
+"spin" = "机会";
+//PersonalAchievementViewController
+"achievement" = "成就";
+"coin" = "金币";
+*/
+
+"full" = "Full";
+"cityRank" = "WORLD RANK";
+"allRank" = "WORLD RANK";
+"personalRank" = "FRIEND RANK";
+"publish" = "PUBLISH";
+"Borign" = "Borign";
+"Fun" = "Fun";
+"Continue" = "Continue";
+"report" = "Report";
+"enterGame" = "it's your turn, do you want to enter the game now?";
+"later" = "Later";
+"go" = "Go";
+"congratulations" = "Congratulations";
+"levelUp" = "success to go up to level ";
+"danUp" = "success to go up to dan ";
+"ok" = "OK";
+"Game" = "Game";
+"Contact" = "Contact";
+"Chat" = "Chat";
+"Personal" = "Personal";
+"challengeFriend" = "Challenge Friend";
+"namingChallenge"="Naming Challenge";
+"next" = "Next";
+"friend" = "Friend";
+"added" = "Added";
+"add" = "Add";
+"ready" = "Ready?";
+"start" = "Start";
+"play" = "PLAY";
+"chooseOpponents" = "Choose Opponents";
+"yourTurn" = "your turn";
+"wait" = "waiting";
+"end" = "end";
+"newGame" = "New Game";
+"moreStatus" = "More";
+"enter" = "Ready to enter the Game?";
+"overtime" = "The Game is Overtime";
+"Delete" = "Delete";
+"Again" = "Again";
+"playAgain" = "PLAY AGAIN";
+"score" = "Score";
+"right" = "Right";
+"time" = "Time";
+"selectCountry" = "THE COUNTRY YOU WANT TO CHANLLENGE";
+"gameMode" = "GAME MODE";
+"classic" = "Classic";
+"challenge" = "Challenge";
+"friends" = "Friends";
+"random" = "Random";
+"playGame" = "Play Game";
+"warning" = "Warning";
+"chooseCountry" = "please choose country";
+"endGame" = "The Game is Over";
+"questionTitle" = "Question Title";
+"trueAnswer" = "True Answer";
+"wrongAnswer1" = "Wrong Answer 1";
+"wrongAnswer2" = "Wrong Answer 2";
+"wrongAnswer3" = "Wrong Answer 3";
+"photo" = "Photo";
+"uploadQuestion" = "UPLOAD QUESTION";
+"done" = "Done";
+"uploadToPool" = "Upload To Pool";
+"uploadToFriends" = "Upload To Friends";
+"cancel" = "Cancel";
+"fill" = "Please Fill It Out Completely";
+"share" = "Share";
+"uploadSuccess" = "UPLOAD SUCCESS";
+"selectKind" = "SELECT KIND";
+"selectRange" = "SELECT RANGE";
+//ChooseLoginItemViewController
+"signInFB" = "Sign-in with Facebook";
+"signInEmail" = "Sign-in with Email";
+"or" = "OR";
+"haveNoAccount" = "Don't Have Any Account,Please";
+"signUp" = "Register";
+"logError" = "Login With Wrong Password";
+"emailPlaceholder" = "email@example.com";
+"passwordPlaceholder" = "password";
+"logout" = "Logout";
+"enterEmail" = "Enter your email address";
+//TourRecordsViewController
+"COLLECT" = "COLLECT";
+"PERFORMANCE" = "PERFORMANCE";
+"TRAVELS" = "TRAVELS";
+"challengeTotal" = "Challenges played:";
+"level" = "Level";
+"changeCover" = "Change Cover";
+"edit" = "Edit";
+"playNow" = "PLAY NOW";
+"message" = "MESSAGE";
+//PersonalPerformanceChallengesTableViewCell
+"challenges" = "Challenges";
+//PersonalPerformancePerformanceTableViewCell
+"performance" = "Performance";
+"won" = "Won";
+"lost" = "Lost";
+"resigned" = "Resigned";
+"achievements" = "Achievements";
+//PersonalFollowView
+"following" = "following";
+"followers" = "followers";
+//PersonalShopViewController
+"shop" = "Shop";
+"featured" = "featured";
+"live" = "live";
+"gem" = "gem";
+"spin" = "spin";
+"coin" = "coin";
+//PersonalAchievementViewController
+"achievement" = "Achievement";
