@@ -1,6 +1,0 @@
-framework module Pods_Whereami {
-  umbrella header "Pods-Whereami-umbrella.h"
-
-  export *
-  module * { export * }
-}
