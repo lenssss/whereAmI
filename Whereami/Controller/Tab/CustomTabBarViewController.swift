@@ -42,10 +42,15 @@ class CustomTabBarViewController: UITabBarController{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+        
         let status = SocketManager.sharedInstance.socket?.status
         if status != SocketIOClientStatus.Connected {
-            let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
-            currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
+            self.runInMainQueue({ 
+                let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
+                currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
+            })
         }
     }
     

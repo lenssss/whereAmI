@@ -190,7 +190,7 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
                 }
                 var content = ""
                 if replyNicname != "" {
-                    content = "回复：@\(replyNicname) \n \(comment!.content! as String)"
+                    content = "@\(replyNicname)" + " " + "\(comment!.content! as String)"
                 }
                 else{
                     content = comment!.content!
@@ -213,9 +213,9 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
             if self.feed?.picList?.count == 1 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("PersonalTravelOnePhotoTableViewCell", forIndexPath: indexPath) as! PersonalTravelOnePhotoTableViewCell
                 cell.selectionStyle = .None
-                if userId == currentUser {
-                    cell.likeLogo?.enabled = false
-                }
+//                if userId == currentUser {
+//                    cell.likeLogo?.enabled = false
+//                }
                 
                 let creator = CoreDataManager.sharedInstance.fetchUserById(feed.creatorId!)
                 let avatarUrl = creator!.headPortraitUrl != nil ? creator!.headPortraitUrl : ""
@@ -240,10 +240,8 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
                 
                 cell.getPhoto()
                 
-                if userId != currentUser {
-                    cell.digAction = {() -> Void in
-                        self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed, cell: cell)
-                    }
+                cell.digAction = {() -> Void in
+                    self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed, cell: cell)
                 }
                 
                 cell.commentAction = nil
@@ -262,9 +260,9 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
             else{
                 let cell = tableView.dequeueReusableCellWithIdentifier("PersonalTravelMutablePhotoTableViewCell", forIndexPath: indexPath) as! PersonalTravelMutablePhotoTableViewCell
                 cell.selectionStyle = .None
-                if userId == currentUser {
-                    cell.likeLogo?.enabled = false
-                }
+//                if userId == currentUser {
+//                    cell.likeLogo?.enabled = false
+//                }
                 
                 let num = ceil(CGFloat(feed.picList!.count)/3.0)
                 let PhotoH = (contentLabelW)/3
@@ -292,11 +290,8 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
                 
                 cell.getPhoto(feed.picList!)
                 
-                
-                if userId != currentUser {
-                    cell.digAction = {() -> Void in
-                        self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
-                    }
+                cell.digAction = {() -> Void in
+                    self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
                 }
                 
                 cell.commentAction = {() -> Void in
@@ -327,12 +322,12 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
             }
             var content = ""
             if comment.relatedId != "" {
-                content = "回复：@\(replyNicname) \n \(comment.content! as String)"
+                content = "@\(replyNicname)" + " " + "\(comment.content! as String)"
             }
             else{
                 content = comment.content!
             }
-            let contentLabelH = (content as NSString).boundingRectWithSize(CGSize(width: contentLabelW,height: CGFloat.max), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14.0)], context: nil).height + 10
+            let contentLabelH = ceil((content as NSString).boundingRectWithSize(CGSize(width: contentLabelW,height: CGFloat.max), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(14.0)], context: nil).height) + 10
         
             let cell = tableView.dequeueReusableCellWithIdentifier("PersonalTravelCommentTableViewCell", forIndexPath: indexPath) as! PersonalTravelCommentTableViewCell
             cell.selectionStyle = .None

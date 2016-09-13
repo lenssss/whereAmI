@@ -61,31 +61,13 @@ class GameQuestionPlayRoomViewController: UIViewController {
         }
     }
     
-    func setUI(){        
-//        self.title = "\(self.answerTime)"
-        self.title = "\((questionModel?.classificationName)! as String)"
+    func setUI(){
         self.view.backgroundColor = UIColor.getGameColor()
         self.navigationItem.hidesBackButton = false
-        
-//        let leftBarButtonItem = UIButton()
-//        leftBarButtonItem.layer.borderWidth = 1.0
-//        leftBarButtonItem.layer.borderColor = UIColor.whiteColor().CGColor
-//        leftBarButtonItem.setBackgroundImage(UIImage(named: "temp3"), forState: .Normal)
-//        leftBarButtonItem.layer.masksToBounds = true
-//        leftBarButtonItem.layer.cornerRadius = 15
-//        leftBarButtonItem.layer.bounds = CGRectMake(0, 0, 30, 30)
-        self.navigationItem.hidesBackButton = true
 
-        rightBarButtonItem = UIButton()
-        rightBarButtonItem?.enabled = false
-//        rightBarButtonItem.layer.borderWidth = 1.0
-//        rightBarButtonItem.layer.borderColor = UIColor.whiteColor().CGColor
-//        rightBarButtonItem.setBackgroundImage(UIImage(named: "temp4"), forState: .Normal)
-//        rightBarButtonItem.layer.masksToBounds = true
-//        rightBarButtonItem.layer.cornerRadius = 15
-        rightBarButtonItem?.setTitle("\(answerTime as Int)", forState: .Normal)
-        rightBarButtonItem?.layer.bounds = CGRect(x: 0,y: 0,width: 30,height: 30)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButtonItem!)
+        self.navigationItem.hidesBackButton = true
+        
+        self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.time.rawValue)
         
         self.bottomScrollView = UIScrollView()
         self.bottomScrollView?.scrollEnabled = false
@@ -282,9 +264,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
                     let alertController = UIAlertController(title: "", message: NSLocalizedString("endGame",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
                     let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (confirmAction) in
                         self.hasNextQuestion = false
-                        self.title = "\((self.questionModel?.classificationName)! as String)"
-                        let shareBarButton = UIBarButtonItem.init(image: UIImage(named: "share"), style: .Done, target: self, action: #selector(self.share))
-                        self.navigationItem.rightBarButtonItem = shareBarButton
+                        self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.share.rawValue)
                         self.bottomScrollView?.contentOffset = CGPoint(x: screenWidth,y: 0)
                     })
                     alertController.addAction(confirmAction)
@@ -294,9 +274,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
             if code == statusCode.Normal.rawValue {
                 print("===============\(objs)")
                 self.runInMainQueue({
-                    self.title = "\((self.questionModel?.classificationName)! as String)"
-                    let shareBarButton = UIBarButtonItem.init(image: UIImage(named: "share"), style: .Done, target: self, action: #selector(self.share))
-                    self.navigationItem.rightBarButtonItem = shareBarButton
+                    self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.share.rawValue)
                     self.bottomScrollView?.contentOffset = CGPoint(x: screenWidth,y: 0)
                 })
                 
@@ -352,8 +330,9 @@ class GameQuestionPlayRoomViewController: UIViewController {
                 }
 
                 self.bottomScrollView?.contentOffset = CGPoint(x: 0,y: 0)
+                
                 self.answerTime = 30
-                self.title = "\(self.answerTime)"
+                self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.time.rawValue)
                 self.addTimer()
             }
             else{
@@ -460,6 +439,24 @@ class GameQuestionPlayRoomViewController: UIViewController {
         }
         item?.itemNum = (item?.itemNum)! - 1
         CoreDataManager.sharedInstance.increaseOrUpdateAccItem(item!)
+    }
+    
+    func setTitleAndRightBarButtonItemType(type:Int) {
+        if type == rightBarButtonItemType.time.rawValue {
+            self.title = "\((questionModel?.classificationName)! as String)"
+            self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+            rightBarButtonItem = UIButton()
+            rightBarButtonItem?.enabled = false
+            rightBarButtonItem?.setTitle("\(answerTime as Int)", forState: .Normal)
+            rightBarButtonItem?.layer.bounds = CGRect(x: 0,y: 0,width: 30,height: 30)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButtonItem!)
+        }
+        else{
+            self.title = "\((self.questionModel?.classificationName)! as String)"
+            self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+            let shareBarButton = UIBarButtonItem.init(image: UIImage(named: "share"), style: .Done, target: self, action: #selector(self.share))
+            self.navigationItem.rightBarButtonItem = shareBarButton
+        }
     }
     
     override func didReceiveMemoryWarning() {

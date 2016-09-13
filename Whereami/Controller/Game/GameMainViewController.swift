@@ -13,9 +13,6 @@ import MJRefresh
 import SVProgressHUD
 import SocketIOClientSwift
 
-public var KNotificationMainViewWillShow: String { get{ return "KNotificationMainViewWillShow"} }
-public var KNotificationMainViewDidShow: String { get{ return "KNotificationMainViewDidShow"} }
-
 class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GADBannerViewDelegate,GADInterstitialDelegate,UITableViewDelegate,UITableViewDataSource,BannerViewDelegate,UINavigationControllerDelegate {
     
     var tempConstraint:NSLayoutConstraint? = nil
@@ -83,7 +80,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
     }
     
 // MARK: UI
-    //设置广告
+    //设置广告 
     func setupAD() {
         self.adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         self.navigationController?.navigationBar.addSubview(self.adBannerView!)
@@ -472,6 +469,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
             })
             alertController.addAction(confirmAction)
             alertController.addAction(cancelAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         else if indexPath.section == 3 {
             if model.battleType == "challengeFri" || model.battleType == "challengeRan" {
@@ -517,6 +515,9 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                     })
                 }
             }
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
+            }
             else if code ==  statusCode.Overtime.rawValue {
                 self.presentOvertimeAlert()
             }
@@ -556,8 +557,12 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                         viewController.battleId = battleId
                         viewController.hidesBottomBarWhenPushed = true
                         self.navigationController?.pushViewController(viewController, animated: true)
+                        viewController.restartButton?.hidden = true
                     }
                 })
+            }
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
             }
             else if code ==  statusCode.Overtime.rawValue {
                 self.presentOvertimeAlert()
@@ -579,7 +584,6 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
         })
         SocketManager.sharedInstance.sendMsg("startBattle", data: dict, onProto: "startBattleed", callBack: { (code, objs) in
             self.runInMainQueue({
-                //                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 SVProgressHUD.dismiss()
             })
             print(objs)
@@ -602,7 +606,10 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                     }
                 }
             }
-            else if code ==  statusCode.Overtime.rawValue {
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
+            }
+            else if code == statusCode.Overtime.rawValue {
                 self.presentOvertimeAlert()
             }
             else if code == statusCode.Error.rawValue {
@@ -742,27 +749,41 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
     }
     
     func presentOvertimeAlert(){
-        let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("overtime",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
-        let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
-            self.getBattleList()
-            self.runInMainQueue({
-                self.tableView?.reloadData()
+        self.runInMainQueue { 
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("overtime",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.getBattleList()
             })
-        })
-        alertController.addAction(confirmAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
-    func presentErrorAlert(){
-        let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("error",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
-        let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
-            self.getBattleList()
-            self.runInMainQueue({
-                self.tableView?.reloadData()
+    func presentCompleteAlert(){
+        self.runInMainQueue { 
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("complete",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.getBattleList()
             })
-        })
-        alertController.addAction(confirmAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+
+    
+    func presentErrorAlert(){
+        self.runInMainQueue { 
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("error",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.getBattleList()
+            })
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func SVProgressDismiss(){
+        SVProgressHUD.dismiss()
     }
     
     /*

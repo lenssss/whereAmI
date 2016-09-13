@@ -150,7 +150,7 @@ class GameChallengeMatchViewController: UIViewController {
     
     func backAction(){
         let viewControllers = self.navigationController?.viewControllers
-        if viewControllers?.count != 1{
+        if viewControllers?.count != 1 && viewControllers?.count != nil{
             let index = (viewControllers?.count)! - 2
             let viewController = viewControllers![index]
             self.navigationController?.popToViewController(viewController, animated: true)

@@ -96,10 +96,8 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
     func getDataSource(){
         let dic = [String:AnyObject]()
         
-        //        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        //        hub.color = UIColor.clearColor()
-//        SVProgressHUD.setBackgroundColor(UIColor.clearColor())
         SVProgressHUD.show()
+        SVProgressHUD.setDefaultMaskType(.Gradient)
         SocketManager.sharedInstance.sendMsg("queryItems", data: dic, onProto: "queryItemsed") { (code, objs) in
             if code == statusCode.Normal.rawValue {
                 print("=====================")
@@ -126,7 +124,6 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     func tabBar(tabBar: MDTabBar!, didChangeSelectedIndex selectedIndex: UInt) {
-        productArray?.removeAll()
         switch selectedIndex {
         case 0:
             buyType = 0
@@ -140,7 +137,6 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
         default:
             buyType = 3
         }
-        SVProgressHUD.setBackgroundColor(UIColor.clearColor())
         SVProgressHUD.show()
         self.requestProductData()
     }
@@ -172,7 +168,7 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != 0 {
             let product = productArray![indexPath.row]
-            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
+            SVProgressHUD.setDefaultMaskType(.Gradient)
             SVProgressHUD.show()
             self.purchase(product)
         }
@@ -214,6 +210,9 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
         }
         if productArray == nil {
             productArray = [SKProduct]()
+        }
+        else{
+            productArray?.removeAll()
         }
         for product in response.products  {
             // 激活了对应的销售操作按钮，相当于商店的商品上架允许销售

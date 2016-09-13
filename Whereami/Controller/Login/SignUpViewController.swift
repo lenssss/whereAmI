@@ -41,6 +41,11 @@ class SignUpViewController: UIViewController {
         self.signalAction()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+    }
+    
     func nextButtonActivited () {
         if self.validPwd && self.validEmail {
             self.nextButton!.enabled = true

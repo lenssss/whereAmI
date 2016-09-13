@@ -25,12 +25,14 @@ class GameClassicWheelViewController: UIViewController {
     var ScreenW:CGFloat = 0.0
     var ScreenH:CGFloat = 0.0
     
-    let dataWithDegree = [ "宗教" : [["min":0,"max":60]] ,
-                            "地标" : [["min":60,"max":120]],
-                            "民俗" : [["min":120,"max":180]],
-                            "主题":[["min":180,"max":240]],
-                            "风景":[["min":240,"max":300]],
-                            "细节":[["min":300,"max":360]]]
+    let dataWithDegree = [ "religion" : [["min":0,"max":25.7],["min":334.3,"max":360]] ,
+                            "landmark" : [["min":25.7,"max":77.1]],
+                            "custom" : [["min":77.1,"max":128.5]],
+                            "theme":[["min":128.5,"max":179.9]],
+                            "diamond":[["min":179.9,"max":231.3]],
+                            "landscape":[["min":231.3,"max":282.7]],
+                            "details":[["min":231.3,"max":334.2]],
+                            ]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,8 +21,8 @@ class ChatSelectFriendViewController: UIViewController,UITableViewDelegate,UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "选择好友"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.setCustomBolderFontWithSize(15.0),NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.title = NSLocalizedString("chooseOpponents",tableName:"Localizable", comment: "")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
             self.automaticallyAdjustsScrollViewInsets = false

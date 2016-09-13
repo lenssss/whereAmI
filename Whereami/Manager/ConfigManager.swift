@@ -9,7 +9,34 @@
 
 import UIKit
 
-let isUs = false
+public var KNotificationMainViewWillShow: String { get{ return "KNotificationMainViewWillShow"} }
+public var KNotificationMainViewDidShow: String { get{ return "KNotificationMainViewDidShow"} }
+public var KNotificationDismissSearchView: String { get{ return "KNotificationDismissSearchView"} }
+public var KNotificationPushToBattleDetailsVC: String { get{ return "KNotificationPushToBattleDetailsVC"} }
+
+enum gameMode:Int {
+    case Classic = 1
+    case Challenge = 2
+}
+
+enum Competitor:Int {
+    case Friend = 3
+    case Random = 4
+}
+
+enum rightBarButtonItemType:Int {
+    case time = 1 // 时间
+    case share = 2 // 分享
+}
+
+enum editType {
+    case avator
+    case nickname
+    case region
+    case password
+}
+
+let isUs = true
 
 class ConfigManager: NSObject {
     
@@ -19,11 +46,11 @@ class ConfigManager: NSObject {
     private let cnAppID = "0UKuM6eihzauOmfkdd0FeydO-gzGzoHsz"
     private let cnAppKey = "oKmvokwtISJ8N9BnDzDFTqPO"
     
-    private let internationalIpAddress = "http://47.88.19.66:8080"
+    private let internationalIpAddress = "http://47.88.106.72:3000"
 //本地：
-//    private let testIpAddress = "http://192.168.0.100:5678"
+//    private let testIpAddress = "http://192.168.0.111:5678"
 //邹：
-    private let testIpAddress = "http://192.168.0.119:3000"
+    private let testIpAddress = "http://192.168.0.195:3000"
     
     private static var instance:ConfigManager? = nil
     private static var onceToken:dispatch_once_t = 0

@@ -122,7 +122,7 @@ class PersonalMainViewController: UIViewController,UITableViewDataSource,UITable
             if indexPath.row == 0 {
                 let viewController = PersonalShopViewController()
                 viewController.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(viewController, animated: true)
+                self.navigationController?.pushViewController(viewController, animated: false)
             }
             else if indexPath.row == 1 {
                 let viewController = PersonalAchievementsViewController()

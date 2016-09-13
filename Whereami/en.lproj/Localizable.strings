@@ -8,7 +8,7 @@
 
 "full" = "Full";
 "cityRank" = "WORLD RANK";
-"allRank" = "WORLD RANK";
+"allRank" = "REGION RANK";
 "personalRank" = "FRIEND RANK";
 "publish" = "PUBLISH";
 "Borign" = "Borign";
@@ -42,6 +42,7 @@
 "newGame" = "New Game";
 "moreStatus" = "More";
 "enter" = "Ready to enter the Game?";
+"complete" = "The Game is Complete";
 "overtime" = "The Game is Overtime";
 "Delete" = "Delete";
 "Again" = "Again";

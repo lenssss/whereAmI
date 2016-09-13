@@ -26,6 +26,7 @@ class ContactIncreaseFriendSearchResultViewController: ContactMainViewSearchResu
                 cell.addButton?.setTitle(NSLocalizedString("added",tableName:"Localizable", comment: ""), forState: .Normal)
             }
         }
+        
         cell.callBack = {(button) -> Void in
             //self.addFriend(indexPath, cell: cell)
         }

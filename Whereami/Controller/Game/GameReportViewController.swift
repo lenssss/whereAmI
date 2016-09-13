@@ -83,7 +83,6 @@ class GameReportViewController: UIViewController,UITableViewDelegate,UITableView
         SocketManager.sharedInstance.sendMsg("tipoffs", data: dict, onProto: "tipoffsed", callBack: { (code, objs) in
             if code == statusCode.Normal.rawValue {
                 self.runInMainQueue({
-                    SVProgressHUD.setDefaultStyle(.Dark)
                     SVProgressHUD.showSuccessWithStatus("report success")
                 })
             }

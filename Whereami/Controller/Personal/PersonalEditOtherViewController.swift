@@ -10,13 +10,6 @@ import UIKit
 //import MBProgressHUD
 import SVProgressHUD
 
-enum editType {
-    case avator
-    case nickname
-    case region
-    case password
-}
-
 class PersonalEditOtherViewController: UIViewController {
     
     var textField:UITextField? = nil

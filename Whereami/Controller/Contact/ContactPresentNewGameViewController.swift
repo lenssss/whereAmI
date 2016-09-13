@@ -44,7 +44,7 @@ class ContactPresentNewGameViewController: UIViewController,UICollectionViewDele
     }
     
     func setUI(){
-        self.view.backgroundColor = UIColor.getGameColor()
+        self.view.backgroundColor = UIColor.getNavigationBarColor()
         
         let backBtn = TheBackBarButton.initWithAction({
             let viewControllers = self.navigationController?.viewControllers

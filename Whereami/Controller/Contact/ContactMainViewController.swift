@@ -13,8 +13,6 @@ import SWTableViewCell
 import SocketIOClientSwift
 //import SDWebImage
 
-public var KNotificationDismissSearchView: String { get{ return "KNotificationDismissSearchView"} }
-
 class ContactMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchBarDelegate,SWTableViewCellDelegate {
     
     var tableView:UITableView? = nil

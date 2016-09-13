@@ -168,15 +168,14 @@ class GameClassicBattleDetailsViewController: UIViewController {
             for item in kinds! {
                 if item.kindCode == battle!.questions!.classificationCode {
                     self.kindModel = item
-                    self.wheelVC!.continent = self.kindModel?.kindName
+                    self.wheelVC!.continent = self.kindModel?.kindCode
                     self.wheelView?.userInteractionEnabled = true
                 }
             }
         }
         else{
             SVProgressHUD.show()
-            SVProgressHUD.setDefaultMaskType(.Clear)
-            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
+            SVProgressHUD.setDefaultMaskType(.Gradient)
             if self.matchDetailModel == nil {
                 var dict = [String: AnyObject]()
                 dict["countryCode"] = GameParameterManager.sharedInstance.gameRange?.countryCode
@@ -243,7 +242,7 @@ class GameClassicBattleDetailsViewController: UIViewController {
                     for item in kinds! {
                         if item.kindCode == battleModel.questions!.classificationCode {
                             self.kindModel = item
-                            self.wheelVC!.continent = self.kindModel?.kindName
+                            self.wheelVC!.continent = self.kindModel?.kindCode
                             self.wheelView?.userInteractionEnabled = true
                             break
                         }
@@ -367,7 +366,7 @@ class GameClassicBattleDetailsViewController: UIViewController {
             self.navigationItem.leftBarButtonItem?.enabled = false
         }
         wheelVC!.completion = {() -> Void in
-            self.pushToStartGameVC()
+            self.performSelector(#selector(self.pushToStartGameVC), withObject: nil, afterDelay: 0.5)
             self.navigationItem.rightBarButtonItem?.enabled = true
             self.navigationItem.leftBarButtonItem?.enabled = true
         }
@@ -388,7 +387,7 @@ class GameClassicBattleDetailsViewController: UIViewController {
     
     func backAction(){
         let viewControllers = self.navigationController?.viewControllers
-        if viewControllers?.count != 1{
+        if viewControllers?.count != 1 {
             let index = (viewControllers?.count)! - 2
             let viewController = viewControllers![index]
             self.navigationController?.popToViewController(viewController, animated: true)

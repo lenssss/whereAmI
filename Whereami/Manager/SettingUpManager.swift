@@ -11,6 +11,7 @@ import UIKit
 import ReactiveCocoa
 import MagicalRecord
 import SVProgressHUD
+import SocketIOClientSwift
 
 public var KNotificationLogin: String { get{ return "KNotificationLogin"} }
 public var KNotificationGetRemind: String { get{ return "KNotificationGetRemind"} }
@@ -94,6 +95,7 @@ class SettingUpManager: NSObject {
                                 self.registAVClient(userModel)
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     LocationManager.sharedInstance.setupLocation()
+                                    self.change2CustomTabbarVC()
                                 })
                             }
                             else{
@@ -121,6 +123,8 @@ class SettingUpManager: NSObject {
                 self.change2CustomTabbarVC()
             })
         }
+        
+//        SocketManager.sharedInstance.addObserver(self, forKeyPath: "socket.status", options: .New, context: nil)
         
         LeanCloudManager.sharedInstance.setupApplication()
         
@@ -226,5 +230,17 @@ class SettingUpManager: NSObject {
         let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
         currentWindow!.rootViewController = CustomTabBarViewController()
     }
+    
+//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+//        if ((object?.isEqual(SocketManager.sharedInstance)) != nil) {
+//            if keyPath == "socket.status" {
+//                let status = change!["new"] as! Int
+//                if status != SocketIOClientStatus.Connected.rawValue {
+//                    let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
+//                    currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
+//                }
+//            }
+//        }
+//    }
     
 }

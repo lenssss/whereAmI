@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class GameChallengeSelectFriendViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchBarDelegate {
     var questionModel:QuestionModel? = nil
@@ -134,8 +135,16 @@ class GameChallengeSelectFriendViewController: UIViewController,UITableViewDeleg
                     self.pushVC(objs)
                     self.navigationItem.rightBarButtonItem?.enabled = true
                 }
+                else{
+                    SVProgressHUD.showErrorWithStatus("error")
+                    self.performSelector(#selector(self.dismiss), withObject: nil, afterDelay: 0.5)
+                }
             }
         }
+    }
+    
+    func dismiss(){
+        SVProgressHUD.dismiss()
     }
     
     func pushVC(objs:[AnyObject]){

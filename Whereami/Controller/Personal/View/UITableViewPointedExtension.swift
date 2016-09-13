@@ -25,14 +25,10 @@ extension UITableView {
                             let covertPoint = headerView.convertPoint(covertPointInSuperView, fromView: view)
                             if headerView.headerImageView!.frame.contains(covertPoint) {
                                 return headerView.headerImageView!
-                            }else if headerView.followingLabel!.frame.contains(covertPoint){
-                                return headerView.followingLabel!
-                            }else if headerView.followerLabel!.frame.contains(covertPoint){
-                                return headerView.followerLabel!
-                            }else if headerView.following!.frame.contains(covertPoint){
-                                return headerView.following!
-                            }else if headerView.follower!.frame.contains(covertPoint){
-                                return headerView.follower!
+                            }else if headerView.followingBtn!.frame.contains(covertPoint){
+                                return headerView.followingBtn!
+                            }else if headerView.followerBtn!.frame.contains(covertPoint){
+                                return headerView.followerBtn!
                             }else if headerView.playButton!.frame.contains(covertPoint){
                                 return headerView.playButton!
                             }else if headerView.chatButton!.frame.contains(covertPoint){
@@ -48,14 +44,10 @@ extension UITableView {
                         let covertPoint = headerView.convertPoint(covertPointInSuperView, fromView: view)
                         if headerView.headerImageView!.frame.contains(covertPoint) {
                             return headerView.headerImageView!
-                        }else if headerView.followingLabel!.frame.contains(covertPoint){
-                            return headerView.followingLabel!
-                        }else if headerView.followerLabel!.frame.contains(covertPoint){
-                            return headerView.followerLabel!
-                        }else if headerView.following!.frame.contains(covertPoint){
-                            return headerView.following!
-                        }else if headerView.follower!.frame.contains(covertPoint){
-                            return headerView.follower!
+                        }else if headerView.followingBtn!.frame.contains(covertPoint){
+                            return headerView.followingBtn!
+                        }else if headerView.followerBtn!.frame.contains(covertPoint){
+                            return headerView.followerBtn!
                         }else if headerView.editButton!.frame.contains(covertPoint){
                             return headerView.editButton!
                         }

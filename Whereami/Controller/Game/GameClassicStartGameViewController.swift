@@ -114,7 +114,9 @@ class GameClassicStartGameViewController: UIViewController {
         
         SocketManager.sharedInstance.sendMsg("chooseagain", data: dict, onProto: "chooseagained") { (code, objs) in
             print("=======================\(objs)")
-            SVProgressHUD.dismiss()
+            self.runInMainQueue({ 
+                SVProgressHUD.dismiss()
+            })
             if code == statusCode.Normal.rawValue {
                 let battleModel = BattleModel.getModelFromDictionary(objs[0] as! NSDictionary)
                 self.runInMainQueue({ 

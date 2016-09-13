@@ -24,7 +24,7 @@ class QuestionClassView: UIView {
     
     func setUI(){
         self.QuestionClassName = UILabel()
-        self.QuestionClassName?.font = UIFont.systemFontOfSize(40)
+        self.QuestionClassName?.font = UIFont.systemFontOfSize(30)
         self.QuestionClassName?.textAlignment = .Center
         self.QuestionClassName?.textColor = UIColor.whiteColor()
         self.addSubview(self.QuestionClassName!)

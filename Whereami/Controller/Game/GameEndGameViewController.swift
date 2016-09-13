@@ -52,12 +52,14 @@ class GameEndGameViewController: UIViewController,UITableViewDataSource,UITableV
         self.tableView?.dataSource = self
         self.view.addSubview(self.tableView!)
         
+        /*
         self.restartButton = UIButton()
         self.restartButton?.setTitle(NSLocalizedString("playAgain",tableName: "Localizable", comment: ""), forState: .Normal)
         self.restartButton?.setTitleColor(UIColor.blackColor(), forState: .Normal)
         self.restartButton?.backgroundColor = UIColor.whiteColor()
         self.restartButton?.layer.cornerRadius = 10.0
         self.view.addSubview(self.restartButton!)
+ */
         
         self.icon?.autoPinEdgeToSuperviewEdge(.Top, withInset: 50)
         self.icon?.autoAlignAxisToSuperviewAxis(.Vertical)
@@ -66,12 +68,15 @@ class GameEndGameViewController: UIViewController,UITableViewDataSource,UITableV
         self.tableView?.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.icon!, withOffset: 30)
         self.tableView?.autoPinEdgeToSuperviewEdge(.Left, withInset: 0)
         self.tableView?.autoPinEdgeToSuperviewEdge(.Right, withInset: 0)
-        self.tableView?.autoPinEdge(.Bottom, toEdge: .Top, ofView: self.restartButton!, withOffset: -20)
+//        self.tableView?.autoPinEdge(.Bottom, toEdge: .Top, ofView: self.restartButton!, withOffset: -20)
+        self.tableView?.autoPinEdgeToSuperviewEdge(.Bottom, withInset: -80)
         
+        /*
         self.restartButton?.autoPinEdgeToSuperviewEdge(.Left, withInset: 20)
         self.restartButton?.autoPinEdgeToSuperviewEdge(.Right, withInset: 20)
-        self.restartButton?.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 50)
-        self.restartButton?.autoSetDimension(.Height, toSize: 50)
+        self.restartButton?.autoPinEdgeToSuperviewEdge(.Bottom, withInset: 20)
+        self.restartButton?.autoSetDimension(.Height, toSize: 40)
+ */
         
         self.tableView?.registerClass(GameEndGameTableViewCell.self, forCellReuseIdentifier: "GameEndGameTableViewCell")
     }

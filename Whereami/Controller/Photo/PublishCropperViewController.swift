@@ -93,32 +93,47 @@ class PublishCropperViewController: UIViewController {
         dic["userId"] = currentUser?.id
         dic["type"] = "jpg"
         dic["content"] = UIImageJPEGRepresentation(image, 1.0)
+        
+        self.runInMainQueue {
+            SVProgressHUD.show()
+        }
+        
         SocketManager.sharedInstance.sendMsg("uploadImageFile", data: dic, onProto: "uploadImageFileed", callBack: { (code, objs) -> Void in
             if code == statusCode.Normal.rawValue {
                 let file = objs[0]["file"] as! String
                 var dict = [String:AnyObject]()
                 dict["accountId"] = currentUser?.id
                 dict["headPortrait"] = file
-                self.runInMainQueue({
-//                    let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//                    hub.color = UIColor.clearColor()
-                    SVProgressHUD.setBackgroundColor(UIColor.clearColor())
-                    SVProgressHUD.show()
-                })
                 SocketManager.sharedInstance.sendMsg("accountUpdate", data: dict, onProto: "accountUpdateed") { (code, objs) in
-                    if code == statusCode.Normal.rawValue {
-                        self.runInMainQueue({
+                    self.runInMainQueue({ 
+                        if code == statusCode.Normal.rawValue {
                             currentUser?.headPortraitUrl = file
                             CoreDataManager.sharedInstance.increaseOrUpdateUser(currentUser!)
                             NSNotificationCenter.defaultCenter().postNotificationName("KNotificationChangeAvatar", object: image)
-//                            MBProgressHUD.hideHUDForView(self.view, animated: true)
                             SVProgressHUD.dismiss()
-                        })
-                    }
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        }
+                        else{
+                            self.uploadErrorAction()
+                        }
+                    })
                 }
-                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            else{
+                self.runInMainQueue({ 
+                    self.uploadErrorAction()
+                })
             }
         })
+    }
+    
+    func uploadErrorAction(){
+        SVProgressHUD.showErrorWithStatus("upload error")
+        self.performSelector(#selector(self.dismissVC), withObject: nil, afterDelay: 2)
+    }
+    
+    func dismissVC(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

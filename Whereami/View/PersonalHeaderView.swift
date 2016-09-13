@@ -23,6 +23,8 @@ class PersonalHeaderView: UIView {
     var followerLabel:UILabel? = nil
     var following:UILabel? = nil
     var follower:UILabel? = nil
+    var followerBtn:UIButton? = nil
+    var followingBtn:UIButton? = nil
     
     var headerimgActionBlock:ActionBlock? = nil
     var backimgActionBlocck:ActionBlock? = nil
@@ -90,8 +92,8 @@ class PersonalHeaderView: UIView {
         })
         self.addSubview(self.editButton!)
         
-        let tapFollowing = UITapGestureRecognizer(target: self, action: #selector(self.tapFollowingAction(_:)))
-        let tapFollower = UITapGestureRecognizer(target: self, action: #selector(self.tapFollowerAction(_:)))
+//        let tapFollowing = UITapGestureRecognizer(target: self, action: #selector(self.tapFollowingAction(_:)))
+//        let tapFollower = UITapGestureRecognizer(target: self, action: #selector(self.tapFollowerAction(_:)))
         
         self.followingLabel = UILabel()
         self.followingLabel?.text = "0"
@@ -100,7 +102,7 @@ class PersonalHeaderView: UIView {
         self.followingLabel?.textColor = UIColor.whiteColor()
         self.followingLabel?.textAlignment = .Center
         self.followingLabel?.font = UIFont.systemFontOfSize(22.0)
-        self.followingLabel?.addGestureRecognizer(tapFollowing)
+//        self.followingLabel?.addGestureRecognizer(tapFollowing)
         self.addSubview(self.followingLabel!)
         
         self.followerLabel = UILabel()
@@ -110,7 +112,7 @@ class PersonalHeaderView: UIView {
         self.followerLabel?.textColor = UIColor.whiteColor()
         self.followerLabel?.textAlignment = .Center
         self.followerLabel?.font = UIFont.systemFontOfSize(22.0)
-        self.followerLabel?.addGestureRecognizer(tapFollower)
+//        self.followerLabel?.addGestureRecognizer(tapFollower)
         self.addSubview(self.followerLabel!)
         
         self.following = UILabel()
@@ -119,7 +121,7 @@ class PersonalHeaderView: UIView {
         following?.text = NSLocalizedString("following",tableName:"Localizable", comment: "")
         following?.textAlignment = .Center
         following?.font = UIFont.systemFontOfSize(12.0)
-        following?.addGestureRecognizer(tapFollowing)
+//        following?.addGestureRecognizer(tapFollowing)
         self.addSubview(following!)
         
         self.follower = UILabel()
@@ -128,12 +130,24 @@ class PersonalHeaderView: UIView {
         follower?.text = NSLocalizedString("followers",tableName:"Localizable", comment: "")
         follower?.textAlignment = .Center
         follower?.font = UIFont.systemFontOfSize(12.0)
-        follower?.addGestureRecognizer(tapFollower)
+//        follower?.addGestureRecognizer(tapFollower)
         self.addSubview(follower!)
         
         let line = UIView()
         line.backgroundColor = UIColor.whiteColor()
         self.addSubview(line)
+        
+        followerBtn = UIButton()
+        followerBtn!.rac_signalForControlEvents(.TouchUpInside).subscribeNext { (button) in
+            self.tapFollowerAction(button)
+        }
+        self.addSubview(followerBtn!)
+        
+        followingBtn = UIButton()
+        followingBtn!.rac_signalForControlEvents(.TouchUpInside).subscribeNext { (button) in
+            self.tapFollowingAction(button)
+        }
+        self.addSubview(followingBtn!)
         
         self.backImageView?.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsMake(0, 0, 0, 0))
         
@@ -187,6 +201,16 @@ class PersonalHeaderView: UIView {
         self.editButton?.autoAlignAxisToSuperviewAxis(.Vertical)
 //        self.editButton?.autoSetDimensionsToSize(CGSize(width: 100,height: 0.13*height))
         self.editButton?.autoSetDimensionsToSize(CGSize(width: 130,height: 42))
+        
+        followerBtn!.autoPinEdge(.Top, toEdge: .Top, ofView: followerLabel!)
+        followerBtn!.autoPinEdge(.Left, toEdge: .Left, ofView: followerLabel!)
+        followerBtn!.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: follower!)
+        followerBtn!.autoPinEdge(.Right, toEdge: .Right, ofView: follower!)
+        
+        followingBtn!.autoPinEdge(.Top, toEdge: .Top, ofView: followingLabel!)
+        followingBtn!.autoPinEdge(.Left, toEdge: .Left, ofView: followingLabel!)
+        followingBtn!.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: following!)
+        followingBtn!.autoPinEdge(.Right, toEdge: .Right, ofView: following!)
     }
     
     required init?(coder aDecoder: NSCoder) {

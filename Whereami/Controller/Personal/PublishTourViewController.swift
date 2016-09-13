@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import TZImagePickerController
-//import MBProgressHUD
 import SVProgressHUD
 import DKImagePickerController
 
@@ -21,6 +19,7 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
     var photoList:[AnyObject]? = nil
     
     var assets:[DKAsset]? = nil
+    var isSuccess:Bool? = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +41,6 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
             if item.isKindOfClass(UIImage){
                 array.append(item as! UIImage)
             }
-//            else{
-//                TZImageManager().getPhotoWithAsset(item, completion: { (image, dic, bool) in
-//                    array.append(image)
-//                })
-//            }
         }
         self.photoArray = array
     }
@@ -89,10 +83,9 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
         dic["userId"] = currentUser?.id
         dic["type"] = "jpg"
         dic["contents"] = self.photoList
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.color = UIColor.clearColor()
-        SVProgressHUD.setDefaultMaskType(.Gradient)
+
         SVProgressHUD.show()
+        SVProgressHUD.setDefaultMaskType(.Gradient)
         SocketManager.sharedInstance.sendMsg("saveMutileImageFile", data: dic, onProto: "saveMutileImageFileed", callBack: { (code, objs) -> Void in
             if code == statusCode.Normal.rawValue {
                 let files = objs[0]["files"] as! [String]
@@ -107,24 +100,15 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
                     if code == statusCode.Normal.rawValue {
                         print(objs)
                         self.runInMainQueue({
-//                            MBProgressHUD.hideHUDForView(self.view, animated: true)
                             SVProgressHUD.showSuccessWithStatus("success")
-                            self.performSelector(#selector(self.dismiss(_:)), withObject: true, afterDelay: 2)
-//                            let alertController = UIAlertController(title: "", message: NSLocalizedString("uploadSuccess",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
-//                            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (confirmAction) in
-//                                NSNotificationCenter.defaultCenter().postNotificationName("publishTour", object: nil)
-//                                let index = self.navigationController?.viewControllers.count
-//                                let viewController = self.navigationController?.viewControllers[index!-2]
-//                                self.navigationController?.popToViewController(viewController!, animated: true)
-//                            })
-//                            alertController.addAction(confirmAction)
-//                            self.presentViewController(alertController, animated: true, completion: nil)
+                            self.isSuccess = true
+                            self.performSelector(#selector(self.dismiss), withObject: self, afterDelay: 2)
                         })
                     }
                     else{
                         self.runInMainQueue({ 
                             SVProgressHUD.showErrorWithStatus("error")
-                            self.performSelector(#selector(self.dismiss(_:)), withObject: false, afterDelay: 2)
+                            self.performSelector(#selector(self.dismiss), withObject: self, afterDelay: 2)
                         })
                     }
                 })
@@ -134,27 +118,6 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
     
     func registerNotification(){
         NSNotificationCenter.defaultCenter().rac_addObserverForName("didTouchAddButton", object: nil).subscribeNext { (notification) in
-//            let collectionView = notification.object as! UICollectionView
-//            let pickerVC = TZImagePickerController(maxImagesCount: 9-self.photoArray!.count, delegate: self)
-//            pickerVC.didFinishPickingPhotosHandle = {(photo,assets,isSelectOriginalPhoto) -> Void in
-//                if isSelectOriginalPhoto == true {
-//                    for item in assets {
-//                        TZImageManager().getPhotoWithAsset(item, completion: { (image, dic, bool) in
-//                            self.photoArray?.append(image)
-//                        })
-//                    }
-//                }
-//                else{
-//                    for item in photo {
-//                        self.photoArray?.append(item)
-//                    }
-//                }
-//                //let beforeRows = self.photoRows
-//                self.photoRows = ceil(CGFloat(self.photoArray!.count)/3.0)
-//                self.tableView?.reloadData()
-//                collectionView.reloadData()
-//            }
-//            self.presentViewController(pickerVC, animated: true, completion: nil)
             let pickerController = DKImagePickerController()
             pickerController.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.getNavigationBarColor()), forBarMetrics: UIBarMetrics.Default)
             UINavigationBar.appearance().titleTextAttributes = [
@@ -239,13 +202,13 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
         }
     }
     
-    func dismiss(IsSuccess:Bool){
+    func dismiss(){
         SVProgressHUD.dismiss()
-        if IsSuccess {
+        if isSuccess == true {
             NSNotificationCenter.defaultCenter().postNotificationName("publishTour", object: nil)
             let index = self.navigationController?.viewControllers.count
-            let viewController = self.navigationController?.viewControllers[index!-2]
-            self.navigationController?.popToViewController(viewController!, animated: true)
+            let viewController = self.navigationController?.viewControllers[index!-2] as! TourRecordsViewController
+            self.navigationController?.popToViewController(viewController, animated: true)
         }
     }
     

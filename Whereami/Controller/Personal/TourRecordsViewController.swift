@@ -392,9 +392,9 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
             if feeds![indexPath.row].picList?.count == 1 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("PersonalTravelOnePhotoTableViewCell", forIndexPath: indexPath) as! PersonalTravelOnePhotoTableViewCell
                 cell.selectionStyle = .None
-                if userId == currentUser {
-                    cell.likeLogo?.enabled = false
-                }
+//                if userId == currentUser {
+//                    cell.likeLogo?.enabled = false
+//                }
                 
                 let creator = CoreDataManager.sharedInstance.fetchUserById(feed.creatorId!)
                 let avatarUrl = creator!.headPortraitUrl != nil ? creator!.headPortraitUrl : ""
@@ -419,10 +419,8 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
                 
                 cell.getPhoto()
                 
-                if userId != currentUser {
-                    cell.digAction = {() -> Void in
-                        self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
-                    }
+                cell.digAction = {() -> Void in
+                    self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
                 }
                 
                 cell.commentAction = {() -> Void in
@@ -442,9 +440,9 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
             else{
                 let cell = tableView.dequeueReusableCellWithIdentifier("PersonalTravelMutablePhotoTableViewCell", forIndexPath: indexPath) as! PersonalTravelMutablePhotoTableViewCell
                 cell.selectionStyle = .None
-                if userId == currentUser {
-                    cell.likeLogo?.enabled = false
-                }
+//                if userId == currentUser {
+//                    cell.likeLogo?.enabled = false
+//                }
                 
                 let num = ceil(CGFloat(feed.picList!.count)/3.0)
                 let PhotoH = (contentLabelW)/3
@@ -472,10 +470,8 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
                 
                 cell.getPhoto(feed.picList!)
                 
-                if userId != currentUser {
-                    cell.digAction = {() -> Void in
-                        self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
-                    }
+                cell.digAction = {() -> Void in
+                    self.likeOrNot(feed.digList!, tourId: feed.id!, feed: feed,cell: cell)
                 }
                 
                 cell.commentAction = {() -> Void in
@@ -510,7 +506,9 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
     
 // MARK: MDTabBarDelegate
     func tabBar(tabBar: MDTabBar!, didChangeSelectedIndex selectedIndex: UInt) {
-        tableView?.reloadData()
+        self.runInMainQueue { 
+            self.tableView?.reloadData()
+        }
     }
     
 //// MARK: UINavigationControllerDelelgate
@@ -550,13 +548,16 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
     //        }
     //    }
     
-//    func getCollectPhoto(){
-//        self.collectPhoto = [UIImage]()
+//    func getCollectionsWithBlock(block:theCallback){
+//        self.collectPhoto = [String]()
 //        for i in 0...29 {
 //            let index = i%10+1
-//            let image = UIImage(named: "\(index)")
-//            self.collectPhoto?.append(image!)
+////            let image = UIImage(named: "\(index)")
+//            let path = NSBundle.mainBundle().pathForResource("\(index)", ofType: ".jpg")
+//            let url = NSURL.fileURLWithPath(path!)
+//            self.collectPhoto?.append(url)
 //        }
+//        block()
 //    }
     
     
@@ -573,9 +574,9 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
                 block()
             }
         }
+    
      }
  
-    
     func getFeeds(){
         var dic = [String:AnyObject]()
         dic["accountId"] = UserModel.getCurrentUser()?.id
@@ -659,7 +660,7 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
         }
         
         NSNotificationCenter.defaultCenter().rac_addObserverForName("publishTour", object: nil).subscribeNext { (notification) in
-//            self.tabbar?.selectedIndex = 2
+            self.tabbar?.selectedIndex = 2
             self.lastTime = Int(NSDate().timeIntervalSince1970*1000)
             self.isRemove = true
             self.getFeeds()
@@ -749,27 +750,6 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
     }
     
     func pushToPublishVC(){
-//        self.pickerPhotoArray = [AnyObject]()
-//        let pickerVC = TZImagePickerController.init(maxImagesCount: 9, delegate: self)
-//        pickerVC.didFinishPickingPhotosHandle = {(photo,assets,isSelectOriginalPhoto) -> Void in
-//            if isSelectOriginalPhoto == true {
-//                for item in assets {
-//                    self.pickerPhotoArray?.append(item)
-//                }
-//                let viewController = PublishTourViewController()
-//                viewController.photoArray = self.pickerPhotoArray
-//                self.navigationController?.pushViewController(viewController, animated: true)
-//            }
-//            else{
-//                for item in photo {
-//                    self.pickerPhotoArray?.append(item)
-//                }
-//                let viewController = PublishTourViewController()
-//                viewController.photoArray = self.pickerPhotoArray
-//                self.navigationController?.pushViewController(viewController, animated: true)
-//            }
-//        }
-//        self.presentViewController(pickerVC, animated: true, completion: nil)
         self.pickerPhotoArray = [AnyObject]()
         let pickerController = DKImagePickerController()
         pickerController.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.getNavigationBarColor()), forBarMetrics: UIBarMetrics.Default)
@@ -953,7 +933,7 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
                 CoreDataManager.sharedInstance.increaseFriends(friend)
                 self.runInMainQueue({
                     let followBarBtn = UIBarButtonItem.init(image: UIImage(named: "followed"), style: .Done, target: self, action: #selector(self.delFollow))
-                    self.navigationItem.rightBarButtonItems?.replaceRange(1...1, with: [followBarBtn])
+                    self.navigationItem.rightBarButtonItem = followBarBtn
                 })
             }
         })
@@ -969,7 +949,7 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
                 CoreDataManager.sharedInstance.deleteFriends((UserModel.getCurrentUser()?.id)!,friendId: self.userId!)
                 self.runInMainQueue({
                     let followBarBtn = UIBarButtonItem.init(image: UIImage(named: "follow"), style: .Done, target: self, action: #selector(self.follow))
-                    self.navigationItem.rightBarButtonItems?.replaceRange(1...1, with: [followBarBtn])
+                    self.navigationItem.rightBarButtonItem = followBarBtn
                 })
             }
         })

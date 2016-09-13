@@ -41,6 +41,7 @@
 "end" = "已结束";
 "moreStatus" = "更多";
 "enter" = "准备进入战斗？";
+"complete" = "战斗已结束";
 "overtime" = "战斗超时";
 "Delete" = "删除";
 "Again" = "重来";
@@ -153,6 +154,7 @@
 "newGame" = "New Game";
 "moreStatus" = "More";
 "enter" = "Ready to enter the Game?";
+"complete" = "The Game is Complete";
 "overtime" = "The Game is Overtime";
 "Delete" = "Delete";
 "Again" = "Again";

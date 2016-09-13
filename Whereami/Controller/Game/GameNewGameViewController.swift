@@ -9,18 +9,6 @@
 
 import UIKit
 
-public var KNotificationPushToBattleDetailsVC: String { get{ return "KNotificationPushToBattleDetailsVC"} }
-
-enum gameMode:Int {
-    case Classic = 1
-    case Challenge = 2
-}
-
-enum Competitor:Int {
-    case Friend = 3
-    case Random = 4
-}
-
 class GameNewGameViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate{
     var tipLabel:UILabel? = nil
     var countryCollectionView:UICollectionView? = nil
@@ -44,6 +32,9 @@ class GameNewGameViewController: UIViewController,UICollectionViewDelegate,UICol
         super.viewDidLoad()
         countries = FileManager.sharedInstance.readCountryListFromFile()
         
+        guard countries?.count != 0 && countries != nil else{
+            return
+        }
         let country = countries![0]
         self.gameRange = country
         

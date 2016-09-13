@@ -236,6 +236,16 @@
 		65E8B7B61C92A33500F4BC05 /* DBFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8B7B21C92A33500F4BC05 /* DBFriends.swift */; };
 		65E8B7B81C92A3DC00F4BC05 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8B7B71C92A3DC00F4BC05 /* UserModel.swift */; };
 		65E8B7BA1C92A3FF00F4BC05 /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8B7B91C92A3FF00F4BC05 /* FriendsModel.swift */; };
+		830BEC6E1D87DB0600F1CD44 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC641D87DB0600F1CD44 /* 1.jpg */; };
+		830BEC6F1D87DB0600F1CD44 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC651D87DB0600F1CD44 /* 10.jpg */; };
+		830BEC701D87DB0600F1CD44 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC661D87DB0600F1CD44 /* 2.jpg */; };
+		830BEC711D87DB0600F1CD44 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC671D87DB0600F1CD44 /* 3.jpg */; };
+		830BEC721D87DB0600F1CD44 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC681D87DB0600F1CD44 /* 4.jpg */; };
+		830BEC731D87DB0600F1CD44 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC691D87DB0600F1CD44 /* 5.jpg */; };
+		830BEC741D87DB0600F1CD44 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC6A1D87DB0600F1CD44 /* 6.jpg */; };
+		830BEC751D87DB0600F1CD44 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC6B1D87DB0600F1CD44 /* 7.jpg */; };
+		830BEC761D87DB0600F1CD44 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC6C1D87DB0600F1CD44 /* 8.jpg */; };
+		830BEC771D87DB0600F1CD44 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 830BEC6D1D87DB0600F1CD44 /* 9.jpg */; };
 		831FD0BA1D3CC74800068F31 /* UIButtonPointedExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FD0B91D3CC74800068F31 /* UIButtonPointedExtension.swift */; };
 		8320709E1D38B54C000D0213 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8320709D1D38B54C000D0213 /* Social.framework */; };
 		832070B81D38DEA0000D0213 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 832070A01D38DEA0000D0213 /* SF-UI-Display-Black.otf */; };
@@ -721,6 +731,16 @@
 		65E8B7B71C92A3DC00F4BC05 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		65E8B7B91C92A3FF00F4BC05 /* FriendsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 		6BB317312A48C52FD650B0A0 /* Pods-WhereamiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereamiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhereamiUITests/Pods-WhereamiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		830BEC641D87DB0600F1CD44 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		830BEC651D87DB0600F1CD44 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		830BEC661D87DB0600F1CD44 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		830BEC671D87DB0600F1CD44 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		830BEC681D87DB0600F1CD44 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		830BEC691D87DB0600F1CD44 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		830BEC6A1D87DB0600F1CD44 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		830BEC6B1D87DB0600F1CD44 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		830BEC6C1D87DB0600F1CD44 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		830BEC6D1D87DB0600F1CD44 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		831FD0B91D3CC74800068F31 /* UIButtonPointedExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonPointedExtension.swift; sourceTree = "<group>"; };
 		8320709D1D38B54C000D0213 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		832070A01D38DEA0000D0213 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
@@ -1557,6 +1577,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		830BEC631D87DB0600F1CD44 /* collect */ = {
+			isa = PBXGroup;
+			children = (
+				830BEC641D87DB0600F1CD44 /* 1.jpg */,
+				830BEC651D87DB0600F1CD44 /* 10.jpg */,
+				830BEC661D87DB0600F1CD44 /* 2.jpg */,
+				830BEC671D87DB0600F1CD44 /* 3.jpg */,
+				830BEC681D87DB0600F1CD44 /* 4.jpg */,
+				830BEC691D87DB0600F1CD44 /* 5.jpg */,
+				830BEC6A1D87DB0600F1CD44 /* 6.jpg */,
+				830BEC6B1D87DB0600F1CD44 /* 7.jpg */,
+				830BEC6C1D87DB0600F1CD44 /* 8.jpg */,
+				830BEC6D1D87DB0600F1CD44 /* 9.jpg */,
+			);
+			path = collect;
+			sourceTree = "<group>";
+		};
 		8320709F1D38DEA0000D0213 /* SF-UI-Display */ = {
 			isa = PBXGroup;
 			children = (
@@ -1929,6 +1966,7 @@
 		E532E7DB1CBF382900B48B6A /* ImageSources */ = {
 			isa = PBXGroup;
 			children = (
+				830BEC631D87DB0600F1CD44 /* collect */,
 				8320709F1D38DEA0000D0213 /* SF-UI-Display */,
 				832070A91D38DEA0000D0213 /* SF-UI-Text */,
 				E532E7DC1CBF382900B48B6A /* Resoures */,
@@ -2293,9 +2331,13 @@
 				E532E84C1CBF382900B48B6A /* section0_emotion1@2x.png in Resources */,
 				E532E83E1CBF382900B48B6A /* emotion3.gif in Resources */,
 				E532E83D1CBF382900B48B6A /* emotion2.gif in Resources */,
+				830BEC751D87DB0600F1CD44 /* 7.jpg in Resources */,
+				830BEC711D87DB0600F1CD44 /* 3.jpg in Resources */,
+				830BEC771D87DB0600F1CD44 /* 9.jpg in Resources */,
 				832070BB1D38DEA0000D0213 /* SF-UI-Display-Light.otf in Resources */,
 				0038B70E1CBF74F20069C4DD /* RecordingSignal004@2x.png in Resources */,
 				0038B7011CBF74F20069C4DD /* multiMedia@2x.png in Resources */,
+				830BEC6F1D87DB0600F1CD44 /* 10.jpg in Resources */,
 				0038B7211CBF75AC0069C4DD /* Localizable.strings in Resources */,
 				0038B6F81CBF74F20069C4DD /* face_HL@2x.png in Resources */,
 				E532E8411CBF382900B48B6A /* emotion6.gif in Resources */,
@@ -2319,6 +2361,7 @@
 				E532E8391CBF382900B48B6A /* emotion13.gif in Resources */,
 				E532E82C1CBF382900B48B6A /* sharemore_voipvoice@2x.png in Resources */,
 				832070C21D38DEA0000D0213 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				830BEC731D87DB0600F1CD44 /* 5.jpg in Resources */,
 				0038B7111CBF74F20069C4DD /* RecordingSignal007@2x.png in Resources */,
 				E532E8291CBF382900B48B6A /* sharemore_video@2x.png in Resources */,
 				8AB0C72C1C633D9D00E629C5 /* LaunchScreen.storyboard in Resources */,
@@ -2326,6 +2369,7 @@
 				832070CD1D38DEA0000D0213 /* SF-UI-Text-Ultrathin.otf in Resources */,
 				0038B71D1CBF74F20069C4DD /* weChatBubble_Receiving_Solid@2x.png in Resources */,
 				832070CC1D38DEA0000D0213 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
+				830BEC6E1D87DB0600F1CD44 /* 1.jpg in Resources */,
 				0038B6F61CBF74F20069C4DD /* MessageDisplayKitString.strings in Resources */,
 				E532E8361CBF382900B48B6A /* emotion10.gif in Resources */,
 				E532E8381CBF382900B48B6A /* emotion12.gif in Resources */,
@@ -2340,6 +2384,7 @@
 				E532E83C1CBF382900B48B6A /* emotion16.gif in Resources */,
 				E532E8501CBF382900B48B6A /* section0_emotion5@2x.png in Resources */,
 				832070CE1D38DEA0000D0213 /* SF-UI-Text-UltrathinItalic.otf in Resources */,
+				830BEC701D87DB0600F1CD44 /* 2.jpg in Resources */,
 				0038B7031CBF74F20069C4DD /* placeholderImage@2x.png in Resources */,
 				00959F4C1CA53A35005A1EAC /* SVProgressHUD.bundle in Resources */,
 				E532E84E1CBF382900B48B6A /* section0_emotion3@2x.png in Resources */,
@@ -2348,9 +2393,11 @@
 				832070BD1D38DEA0000D0213 /* SF-UI-Display-Regular.otf in Resources */,
 				0038B7071CBF74F20069C4DD /* ReceiverVoiceNodePlaying003@2x.png in Resources */,
 				0038B7161CBF74F20069C4DD /* SenderVoiceNodePlaying002@2x.png in Resources */,
+				830BEC761D87DB0600F1CD44 /* 8.jpg in Resources */,
 				832070B81D38DEA0000D0213 /* SF-UI-Display-Black.otf in Resources */,
 				8AB0C7291C633D9D00E629C5 /* Assets.xcassets in Resources */,
 				0038B70B1CBF74F20069C4DD /* RecordingSignal001@2x.png in Resources */,
+				830BEC741D87DB0600F1CD44 /* 6.jpg in Resources */,
 				0038B7191CBF74F20069C4DD /* voice@2x.png in Resources */,
 				0038B6FC1CBF74F20069C4DD /* keyboard@2x.png in Resources */,
 				0038B7061CBF74F20069C4DD /* ReceiverVoiceNodePlaying002@2x.png in Resources */,
@@ -2391,6 +2438,7 @@
 				0038B6F51CBF74F20069C4DD /* avator@2x.png in Resources */,
 				E532E8441CBF382900B48B6A /* emotion9.gif in Resources */,
 				E532E8491CBF382900B48B6A /* section0_emotion13@2x.png in Resources */,
+				830BEC721D87DB0600F1CD44 /* 4.jpg in Resources */,
 				832070BF1D38DEA0000D0213 /* SF-UI-Display-Thin.otf in Resources */,
 				0038B71A1CBF74F20069C4DD /* voice_HL@2x.png in Resources */,
 				832070BA1D38DEA0000D0213 /* SF-UI-Display-Heavy.otf in Resources */,

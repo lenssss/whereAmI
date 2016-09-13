@@ -21,7 +21,6 @@ class ChatMainNavigationViewController: UINavigationController {
         self.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationBar.barTintColor = UIColor.getNavigationBarColor()
         self.navigationBar.translucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
     }
 
     override func didReceiveMemoryWarning() {
