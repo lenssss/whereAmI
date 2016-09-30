@@ -2258,7 +2258,7 @@
 				TargetAttributes = {
 					8AB0C71D1C633D9D00E629C5 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = KSY2K6V26X;
+						DevelopmentTeam = JR7RAE5XZ9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2969,7 +2969,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KSY2K6V26X;
+				DEVELOPMENT_TEAM = JR7RAE5XZ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2982,7 +2982,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Whereami/Utils/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.orieange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.travels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				REEXPORTED_LIBRARY_PATHS = "";
@@ -3001,7 +3001,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KSY2K6V26X;
+				DEVELOPMENT_TEAM = JR7RAE5XZ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3014,7 +3014,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Whereami/Utils/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.orieange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.travels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				REEXPORTED_LIBRARY_PATHS = "";

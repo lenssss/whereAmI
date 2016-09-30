@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string></string>
+	<key>NSContactsUsageDescription</key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -75,18 +83,10 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>cameraDesciption</string>
-	<key>NSContactsUsageDescription</key>
-	<string>contactsDesciption</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location Always</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location When In Use</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>microphoneDesciption</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>photoLibraryDesciption</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
