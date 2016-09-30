@@ -110,10 +110,19 @@
 "followers" = "followers";
 //PersonalShopViewController
 "shop" = "Shop";
-"featured" = "featured";
-"live" = "live";
-"gem" = "gem";
-"spin" = "spin";
-"coin" = "coin";
+"featured" = "Featured";
+"live" = "Live";
+"gem" = "Gem";
+"spin" = "Spin";
+"coin" = "Coin";
 //PersonalAchievementViewController
 "achievement" = "Achievement";
+//PersonalEditOtherViewController
+"Nickname" = "Nickname";
+"Region" = "Region";
+//PersonalEditAvatorViewController
+"Avatar" = "Avatar";
+//PersonalTravelDigListViewController
+"likeList" = "Like List";
+//PersonalTravalCommentViewController
+"Details" = "Details";

@@ -21,8 +21,8 @@ class AppDelegate:UIResponder, UIApplicationDelegate {
         JPUSHService.registerForRemoteNotificationTypes((UIUserNotificationType.Badge.rawValue | UIUserNotificationType.Sound.rawValue | UIUserNotificationType.Alert.rawValue), categories: nil)
         JPUSHService.setupWithOption(launchOptions, appKey: jpAppKey, channel: jpChannel, apsForProduction: isProduction)
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(kJPFNetworkDidLoginNotification, object: nil).subscribeNext { (anyObject) in
-            let uniqueObj = NSUserDefaults.standardUserDefaults().valueForKey("uniqueId")
+        LNotificationCenter().rac_addObserverForName(kJPFNetworkDidLoginNotification, object: nil).subscribeNext { (anyObject) in
+            let uniqueObj = LUserDefaults().valueForKey("uniqueId")
             if(uniqueObj == nil) {
                 return
             }
@@ -43,9 +43,10 @@ class AppDelegate:UIResponder, UIApplicationDelegate {
         //启动设置
         SettingUpManager.sharedInstance.launch(application, launchOptions: launchOptions)
         
+        //window
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.whiteColor()
-        let sessionId = NSUserDefaults.standardUserDefaults().objectForKey("sessionId") as? String
+        let sessionId = LUserDefaults().objectForKey("sessionId") as? String
         if sessionId != nil {
             self.window?.rootViewController = CustomTabBarViewController()
         }else{

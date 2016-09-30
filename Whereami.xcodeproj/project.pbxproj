@@ -318,8 +318,6 @@
 		8AB0C7221C633D9D00E629C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7211C633D9D00E629C5 /* AppDelegate.swift */; };
 		8AB0C7291C633D9D00E629C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0C7281C633D9D00E629C5 /* Assets.xcassets */; };
 		8AB0C72C1C633D9D00E629C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0C72A1C633D9D00E629C5 /* LaunchScreen.storyboard */; };
-		8AB0C7371C633D9D00E629C5 /* WhereamiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7361C633D9D00E629C5 /* WhereamiTests.swift */; };
-		8AB0C7421C633D9D00E629C5 /* WhereamiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7411C633D9D00E629C5 /* WhereamiUITests.swift */; };
 		8AB0C7571C633DC400E629C5 /* ChooseLoginItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7511C633DC400E629C5 /* ChooseLoginItemViewController.swift */; };
 		8AB0C7581C633DC400E629C5 /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7521C633DC400E629C5 /* EmailLoginViewController.swift */; };
 		8AB0C7591C633DC400E629C5 /* SettingUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB0C7541C633DC400E629C5 /* SettingUpManager.swift */; };
@@ -767,6 +765,7 @@
 		832070B61D38DEA0000D0213 /* SF-UI-Text-Ultrathin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Ultrathin.otf"; sourceTree = "<group>"; };
 		832070B71D38DEA0000D0213 /* SF-UI-Text-UltrathinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-UltrathinItalic.otf"; sourceTree = "<group>"; };
 		833419391D77CC21005774A9 /* GameReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReportViewController.swift; sourceTree = "<group>"; };
+		8339CD971D93B48400BBDCFD /* Whereami.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Whereami.entitlements; sourceTree = "<group>"; };
 		8346653D1D3362D800630BCC /* ItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
 		834ECE861D3767060077F948 /* ContactItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactItemTableViewCell.swift; path = Whereami/Controller/Contact/ContactItemTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		834ECE881D377A260077F948 /* ContactMainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactMainViewCell.swift; path = Whereami/Controller/Contact/ContactMainViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -820,11 +819,7 @@
 		8AB0C72B1C633D9D00E629C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AB0C72D1C633D9D00E629C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB0C7321C633D9D00E629C5 /* WhereamiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereamiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AB0C7361C633D9D00E629C5 /* WhereamiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereamiTests.swift; sourceTree = "<group>"; };
-		8AB0C7381C633D9D00E629C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB0C73D1C633D9D00E629C5 /* WhereamiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereamiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AB0C7411C633D9D00E629C5 /* WhereamiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereamiUITests.swift; sourceTree = "<group>"; };
-		8AB0C7431C633D9D00E629C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB0C7511C633DC400E629C5 /* ChooseLoginItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLoginItemViewController.swift; sourceTree = "<group>"; };
 		8AB0C7521C633DC400E629C5 /* EmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		8AB0C7541C633DC400E629C5 /* SettingUpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUpManager.swift; sourceTree = "<group>"; };
@@ -1775,8 +1770,6 @@
 			isa = PBXGroup;
 			children = (
 				8AB0C7201C633D9D00E629C5 /* Whereami */,
-				8AB0C7351C633D9D00E629C5 /* WhereamiTests */,
-				8AB0C7401C633D9D00E629C5 /* WhereamiUITests */,
 				8AB0C71F1C633D9D00E629C5 /* Products */,
 				D003F0BEA5562E6DC18C0F95 /* Frameworks */,
 				768846B42C1E1C52F422C53E /* Pods */,
@@ -1796,6 +1789,7 @@
 		8AB0C7201C633D9D00E629C5 /* Whereami */ = {
 			isa = PBXGroup;
 			children = (
+				8339CD971D93B48400BBDCFD /* Whereami.entitlements */,
 				E532E7DB1CBF382900B48B6A /* ImageSources */,
 				8A5120E91C74415A00417A7C /* View */,
 				8AE413B71C71D5FE00EFEC20 /* Utils */,
@@ -1812,24 +1806,6 @@
 				0038B7231CBF75AC0069C4DD /* Localizable.strings */,
 			);
 			path = Whereami;
-			sourceTree = "<group>";
-		};
-		8AB0C7351C633D9D00E629C5 /* WhereamiTests */ = {
-			isa = PBXGroup;
-			children = (
-				8AB0C7361C633D9D00E629C5 /* WhereamiTests.swift */,
-				8AB0C7381C633D9D00E629C5 /* Info.plist */,
-			);
-			path = WhereamiTests;
-			sourceTree = "<group>";
-		};
-		8AB0C7401C633D9D00E629C5 /* WhereamiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8AB0C7411C633D9D00E629C5 /* WhereamiUITests.swift */,
-				8AB0C7431C633D9D00E629C5 /* Info.plist */,
-			);
-			path = WhereamiUITests;
 			sourceTree = "<group>";
 		};
 		8AB0C74F1C633DC400E629C5 /* Controller */ = {
@@ -2282,7 +2258,13 @@
 				TargetAttributes = {
 					8AB0C71D1C633D9D00E629C5 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JR7RAE5XZ9;
+						DevelopmentTeam = KSY2K6V26X;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					8AB0C7311C633D9D00E629C5 = {
 						CreatedOnToolsVersion = 7.2;
@@ -2839,7 +2821,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AB0C7371C633D9D00E629C5 /* WhereamiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2847,7 +2828,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AB0C7421C633D9D00E629C5 /* WhereamiUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2989,6 +2969,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KSY2K6V26X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3001,13 +2982,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Whereami/Utils/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.travels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.orieange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				REEXPORTED_LIBRARY_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Whereami/Whereami-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -3019,6 +3001,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KSY2K6V26X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3031,12 +3014,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Whereami/Utils/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.travels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziang.orieange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				REEXPORTED_LIBRARY_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Whereami/Whereami-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

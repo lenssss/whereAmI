@@ -16,13 +16,7 @@ class PersonalEditViewController: UIViewController,UITableViewDataSource,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setUI()
     }
@@ -48,6 +42,7 @@ class PersonalEditViewController: UIViewController,UITableViewDataSource,UITable
         self.tableView?.dataSource = self
         self.tableView?.tableFooterView = UIView()
         self.view.addSubview(tableView!)
+        
         self.tableView?.registerClass(PersonalEditAvatorViewCell.self, forCellReuseIdentifier: "PersonalEditAvatorViewCell")
         self.tableView?.registerClass(PersonalEditOtherViewCell.self, forCellReuseIdentifier: "PersonalEditOtherViewCell")
     }
@@ -101,7 +96,6 @@ class PersonalEditViewController: UIViewController,UITableViewDataSource,UITable
                 cell.selectionStyle = .None
                 cell.accessoryType = .DisclosureIndicator
                 let avatarUrl = currentUser!.headPortraitUrl != nil ? currentUser!.headPortraitUrl : ""
-//                cell.avator?.setImageWithString(avatarUrl!, placeholderImage: UIImage(named: "avator.png")!)
                 cell.avator?.kf_setImageWithURL(NSURL(string:avatarUrl!)!, placeholderImage: UIImage(named: "avator.png"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
                 return cell
             }

@@ -19,13 +19,7 @@ class PersonalTravelFollowViewController: UIViewController,UITableViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         self.setUI()
     }
     

@@ -59,8 +59,6 @@ class PublishQuestionRangeViewController: UIViewController,UITableViewDataSource
             self.questionModel!.countryName = nameArray![selectedIndex!]
             self.questionModel!.countryCode = codeArray![selectedIndex!]
             let dic = PhotoModel.getPhotoDictionaryFromQuestionModel(self.questionModel!)
-            
-//            let dict = QuestionModel.getPublishDictionaryFromQuestionModel(self.questionModel!)
 
             SocketManager.sharedInstance.sendMsg("uploadPhoto", data: dic!, onProto: "uploadPhotoed", callBack: { (code, objs) -> Void in
                 print(objs)

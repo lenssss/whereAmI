@@ -14,9 +14,6 @@ import SVProgressHUD
 
 class PublishCropperViewController: UIViewController {
     
-    let screenH = UIScreen.mainScreen().bounds.height
-    let screenW = UIScreen.mainScreen().bounds.width
-    
     var photoImage:UIImage? = nil
     var cropperView:BABCropperView? = nil
     var type:editType? = nil
@@ -35,7 +32,7 @@ class PublishCropperViewController: UIViewController {
     func setUI(){
         self.cropperView = BABCropperView()
         self.cropperView?.image = photoImage
-        self.cropperView!.cropSize = CGSize(width: screenW,height: screenW)
+        self.cropperView!.cropSize = CGSize(width: LScreenW,height: LScreenW)
         self.cropperView!.cropsImageToCircle = false
         self.view.addSubview(self.cropperView!)
         
@@ -71,23 +68,6 @@ class PublishCropperViewController: UIViewController {
     
     func updateAvator(image:UIImage){
         let currentUser = UserModel.getCurrentUser()
-        
-//        var dic = [String:AnyObject]()
-//        dic["accountId"] = currentUser?.id
-//        dic["headPortrait"] = image.image2String()
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.opacity = 0.2
-//        SocketManager.sharedInstance.sendMsg("accountUpdate", data: dic, onProto: "accountUpdateed") { (code, objs) in
-//            if code == statusCode.Normal.rawValue {
-//                self.runInMainQueue({
-//                    currentUser?.headPortraitUrl = image.image2String()
-//                    CoreDataManager.sharedInstance.increaseOrUpdateUser(currentUser!)
-//                    NSNotificationCenter.defaultCenter().postNotificationName("KNotificationChangeAvatar", object: image)
-//                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-//                })
-//            }
-//        }
-//        self.dismissViewControllerAnimated(true, completion: nil)
         
         var dic = [String:AnyObject]()
         dic["userId"] = currentUser?.id

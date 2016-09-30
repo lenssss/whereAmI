@@ -12,19 +12,16 @@ class GameChallengeBattleDetailsViewController: UIViewController,UICollectionVie
     var readyLabel:UILabel? = nil
     var startButton:UIButton? = nil
     var userCollectionView:UICollectionView? = nil
+    
     var matchDetailModel:MatchDetailModel? = nil
     var matchUser:[AnyObject]? = nil
     var matchUserCollectionView:UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
+        
         self.matchDetailModel = GameParameterManager.sharedInstance.matchDetailModel
         if GameParameterManager.sharedInstance.matchUser == nil {
             self.matchUser = matchDetailModel?.acceptInfo

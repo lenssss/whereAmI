@@ -14,20 +14,15 @@ class GameChallengeSelectFriendViewController: UIViewController,UITableViewDeleg
     var tableView:UITableView? = nil
     var searchResultVC: GameChallengeSearchResultViewController? = nil
     var searchController:UISearchController? = nil
-    var friendList:[FriendsModel]? = nil
-    var matchUsers:[FriendsModel]? = nil
+    var friendList:[FriendsModel]? = nil //好友列表
+    var matchUsers:[FriendsModel]? = nil //选中好友
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
-        self.title = "房间名：" + GameParameterManager.sharedInstance.roomTitle!
+        self.title = "Room：" + GameParameterManager.sharedInstance.roomTitle!
         
         self.matchUsers = GameParameterManager.sharedInstance.matchUser
         if self.matchUsers == nil {
@@ -37,7 +32,7 @@ class GameChallengeSelectFriendViewController: UIViewController,UITableViewDeleg
         self.friendList = CoreDataManager.sharedInstance.fetchAllFriends()
         self.setUI()
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.searchController?.active = false
         }
         
@@ -92,10 +87,13 @@ class GameChallengeSelectFriendViewController: UIViewController,UITableViewDeleg
         let cell:GameChallengeSelectFriendTableViewCell = tableView.dequeueReusableCellWithIdentifier("GameChallengeSelectFriendTableViewCell", forIndexPath: indexPath) as! GameChallengeSelectFriendTableViewCell
         let friend = friendList![indexPath.row]
         let avatar = friend.headPortrait != nil ? friend.headPortrait : ""
-//        cell.avatar?.setImageWithString(avatar!, placeholderImage: UIImage(named: "avator.png")!)
         cell.avatar?.kf_setImageWithURL(NSURL(string:avatar!)!, placeholderImage: UIImage(named: "avator.png"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         cell.chatName?.text = friend.nickname
-        cell.location?.text = "chengdu,China"
+        
+        let user = CoreDataManager.sharedInstance.fetchUserById(friend.friendId!)
+        if user != nil {
+            cell.location?.text = user!.countryName
+        }
         cell.selectionStyle = .None
         
         if ((matchUsers?.indexOf(friend)) != nil) {

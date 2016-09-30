@@ -21,21 +21,16 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
     private var adInterstitial:GADInterstitial? = nil
     private var assetsItems:AssetsItemsView? = nil
     var tableView:UITableView? = nil
-    var battleList:BattleAllModel? = nil
-    var life:Int = 0
-    var chance:Int = 0
-    var diamond:Int = 0
-    var gold:Int = 0
+    
+    var battleList:BattleAllModel? = nil //战斗列表
+    var life:Int = 0 //生命
+    var chance:Int = 0 //机会
+    var diamond:Int = 0 //钻石
+    var gold:Int = 0 //金币
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
 //        self.title = NSLocalizedString("Game",tableName:"Localizable", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
@@ -71,7 +66,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
             self.adBannerView!.hidden = false
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName(KNotificationMainViewDidShow, object: nil)
+        LNotificationCenter().postNotificationName(KNotificationMainViewDidShow, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -494,8 +489,8 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
         dict["battleId"] = battleId
         dict["accountId"] = UserModel.getCurrentUser()?.id
         self.runInMainQueue {
-            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
             SVProgressHUD.show()
+            SVProgressHUD.setDefaultMaskType(.Gradient)
         }
         
         SocketManager.sharedInstance.sendMsg("startBattle", data: dict, onProto: "startBattleed", callBack: { (code, objs) in
@@ -510,7 +505,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                         battleDetailsVC.matchDetailModel = matchDetailModel
                         battleDetailsVC.hidesBottomBarWhenPushed = true
                         let nav = GameMainNavigationViewController(rootViewController: battleDetailsVC)
-                        let window = UIApplication.sharedApplication().keyWindow?.rootViewController
+                        let window = LApplication().keyWindow?.rootViewController
                         window!.presentViewController(nav, animated: true, completion: nil)
                     })
                 }
@@ -532,8 +527,8 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
         var dic = [String:AnyObject]()
         dic["battleId"] = battleId
         self.runInMainQueue {
-            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
             SVProgressHUD.show()
+            SVProgressHUD.setDefaultMaskType(.Gradient)
         }
         
         SocketManager.sharedInstance.sendMsg("getBattleDetails", data: dic, onProto: "getBattleDetailsed") { (code, objs) in
@@ -549,7 +544,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                         battleDetailsVC.waitingDetails = battleEndModel
                         battleDetailsVC.hidesBottomBarWhenPushed = true
                         let nav = GameMainNavigationViewController(rootViewController: battleDetailsVC)
-                        let window = UIApplication.sharedApplication().keyWindow?.rootViewController
+                        let window = LApplication().keyWindow?.rootViewController
                         window!.presentViewController(nav, animated: true, completion: nil)
                     }
                     else{
@@ -600,7 +595,7 @@ class GameMainViewController: UIViewController,HHPanningTableViewCellDelegate,GA
                             playRoomVC.battleModel = battleModel
                             playRoomVC.hidesBottomBarWhenPushed = true
                             let nav = GameMainNavigationViewController(rootViewController: playRoomVC)
-                            let window = UIApplication.sharedApplication().keyWindow?.rootViewController
+                            let window = LApplication().keyWindow?.rootViewController
                             window?.presentViewController(nav, animated: true, completion: nil)
                         })
                     }

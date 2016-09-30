@@ -21,27 +21,20 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
     var deleteCell:PersonalTravelCommentTableViewCell? = nil
     var userId:String? = nil
     
-    var screenW = UIScreen.mainScreen().bounds.width
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.setConfig()
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.title = NSLocalizedString("Details",tableName:"Localizable", comment: "")
         
-        self.title = "帖子详情"
         self.comments = self.getComments()
         self.setUI()
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillShow(notification)
         }
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillHide(notification)
         }
     }
@@ -133,7 +126,7 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
             let y = rect.origin.y
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.2)
-            self.commentTextView?.frame = CGRect(x: 0, y: y-104, width: self.screenW, height: 40)
+            self.commentTextView?.frame = CGRect(x: 0, y: y-104, width: LScreenW, height: 40)
             UIView.commitAnimations()
         }
     }
@@ -144,7 +137,7 @@ class PersonalTravalCommentViewController: UIViewController,UITableViewDelegate,
             let y = rect.origin.y
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.2)
-            self.commentTextView?.frame = CGRect(x: 0, y: y-104, width: self.screenW, height: 40)
+            self.commentTextView?.frame = CGRect(x: 0, y: y-104, width: LScreenW, height: 40)
             UIView.commitAnimations()
         }
     }

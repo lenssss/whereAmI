@@ -8,7 +8,6 @@
 
 import UIKit
 import DKImagePickerController
-//import TZImagePickerController
 
 public var KNotificationChangeAvatar: String { get{ return "KNotificationChangeAvatar"} }
 
@@ -18,24 +17,16 @@ class PersonalEditAvatorViewController: UIViewController {
     var imageString:String? = nil
     var asset:DKAsset? = nil
     
-    var screenW = UIScreen.mainScreen().bounds.width
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.setConfig()
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
-        
-        self.title = "Avatar"
+        self.title = NSLocalizedString("Avatar",tableName:"Localizable", comment: "")
         
         self.setUI()
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName("KNotificationChangeAvatar", object: nil).subscribeNext { (notification) in
+        LNotificationCenter().rac_addObserverForName("KNotificationChangeAvatar", object: nil).subscribeNext { (notification) in
             let image = notification.object as! UIImage
             self.backImageView?.image = image
         }
@@ -52,35 +43,14 @@ class PersonalEditAvatorViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title:  NSLocalizedString("next",tableName:"Localizable", comment: ""), style: .Done, target: self, action: #selector(self.presentImagePicker))
         
         self.backImageView = UIImageView()
-//        self.backImageView?.setImageWithString(self.imageString!, placeholderImage: UIImage(named: "avator.png")!)
         self.backImageView?.kf_setImageWithURL(NSURL(string:self.imageString!)!, placeholderImage: UIImage(named: "avator.png"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         self.view.addSubview(self.backImageView!)
         
         self.backImageView?.autoCenterInSuperview()
-        self.backImageView?.autoSetDimensionsToSize(CGSize(width: screenW,height: screenW))
+        self.backImageView?.autoSetDimensionsToSize(CGSize(width: LScreenW,height: LScreenW))
     }
     
     func presentImagePicker(){
-//        let pickerVC = TZImagePickerController(maxImagesCount: 1, delegate: self)
-//        pickerVC.didFinishPickingPhotosHandle = {(photo,assets,isSelectOriginalPhoto) -> Void in
-//            if isSelectOriginalPhoto == true {
-//                for item in assets {
-//                    TZImageManager().getPhotoWithAsset(item, completion: { (image, dic, bool) in
-//                        self.runInMainQueue({
-//                            self.present2CropperViewController(image)
-//                        })
-//                    })
-//                }
-//            }
-//            else{
-//                for item in photo {
-//                    self.runInMainQueue({
-//                        self.present2CropperViewController(item)
-//                    })
-//                }
-//            }
-//        }
-//        self.presentViewController(pickerVC, animated: true, completion: nil)
         let pickerController = DKImagePickerController()
         pickerController.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor.getNavigationBarColor()), forBarMetrics: UIBarMetrics.Default)
         UINavigationBar.appearance().titleTextAttributes = [

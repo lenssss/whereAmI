@@ -10,33 +10,26 @@ import UIKit
 import Social
 import SVProgressHUD
 
-public var screenWidth: CGFloat { get{ return UIScreen.mainScreen().bounds.width} }
-
 class GameQuestionPlayRoomViewController: UIViewController {
 
     var questionHeadView:GameQuestionHeadView? = nil
     var answerBottomView:GameAnswerBottomView? = nil
     var evaluateBottomView:GameEvaluateBottomView? = nil
     var bottomScrollView:UIScrollView? = nil
-    var battleModel:BattleModel? = nil
-    var questionModel:QuestionModel? = nil
-    var isClassic:Bool? = nil
-    var hasNextQuestion:Bool? = nil
-    var timer:NSTimer? = nil
-    var answerTime:Int = 30
-    var lastQuestionModel:QuestionModel? = nil
     var rightBarButtonItem:UIButton? = nil
+    var timer:NSTimer? = nil
+    
+    var battleModel:BattleModel? = nil //战斗信息
+    var questionModel:QuestionModel? = nil //题目信息
+    var isClassic:Bool? = nil //是否经典
+    var hasNextQuestion:Bool? = nil //是否有下一题
+    var answerTime:Int = 30 //答题剩余时间
+    var lastQuestionModel:QuestionModel? = nil //上一题题目信息
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         if battleModel == nil{
            self.battleModel = GameParameterManager.sharedInstance.battleModel
@@ -124,13 +117,13 @@ class GameQuestionPlayRoomViewController: UIViewController {
         self.answerBottomView?.autoPinEdgeToSuperviewEdge(.Left, withInset: 0)
         self.answerBottomView?.autoPinEdgeToSuperviewEdge(.Top, withInset: 0)
         self.answerBottomView?.autoPinEdge(.Right, toEdge: .Left, ofView: self.evaluateBottomView!)
-        self.answerBottomView?.autoSetDimension(.Width, toSize: screenWidth)
+        self.answerBottomView?.autoSetDimension(.Width, toSize: LScreenW)
         self.answerBottomView?.autoMatchDimension(.Height, toDimension: .Height, ofView: self.questionHeadView!)
 //        self.answerBottomView?.autoSetDimension(.Height, toSize: screenH * 0.4)
         
         self.evaluateBottomView?.autoPinEdgeToSuperviewEdge(.Top, withInset: 0)
         self.evaluateBottomView?.autoPinEdgeToSuperviewEdge(.Right, withInset: 0)
-        self.evaluateBottomView?.autoSetDimension(.Width, toSize: screenWidth)
+        self.evaluateBottomView?.autoSetDimension(.Width, toSize: LScreenW)
         self.evaluateBottomView?.autoMatchDimension(.Height, toDimension: .Height, ofView: self.questionHeadView!)
 //        self.evaluateBottomView?.autoSetDimension(.Height, toSize: screenH * 0.4)
     }
@@ -146,7 +139,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         
         if self.answerTime <= 0{
             let button = UIButton()
-            button.tag = 100
+            button.tag = GameAnswerButtonType.wrong.rawValue
             self.answerButtonClick(button)
         }
     }
@@ -162,7 +155,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         dict["accountId"] = UserModel.getCurrentUser()?.id
         SocketManager.sharedInstance.sendMsg("collectPhoto", data: dict, onProto: "collectPhotoed") { (code, objs) in
             if code == statusCode.Normal.rawValue{
-                
+                SVProgressHUD.showSuccessWithStatus("success")
             }
         }
     }
@@ -189,7 +182,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         }
         
         switch tag {
-        case 5:
+        case GameAnswerButtonType.bomb.rawValue:
             for i in 0...wrongArray.count-1{
                 let dic = wrongArray[i]
                 if i != wrongIndex {
@@ -199,11 +192,11 @@ class GameQuestionPlayRoomViewController: UIViewController {
                 }
             }
             
-        case 6:
+        case GameAnswerButtonType.chance.rawValue:
             self.answerTime += 15
             rightBarButtonItem?.setTitle("\(answerTime as Int)", forState: .Normal)
             
-        case 7:
+        case GameAnswerButtonType.skip.rawValue:
             let rightButton = self.answerBottomView?.viewWithTag(rightIndex) as! UIButton
             self.answerProblem(rightButton)
             
@@ -259,13 +252,13 @@ class GameQuestionPlayRoomViewController: UIViewController {
         self.timer = nil
         
         SocketManager.sharedInstance.sendMsg("answerProblem", data: dict, onProto: "answerProblemed") { (code, objs) in
-            if code == 100 || code == 300 {
+            if code == statusCode.Complete.rawValue || code == statusCode.Overtime.rawValue {
                 self.runInMainQueue({
                     let alertController = UIAlertController(title: "", message: NSLocalizedString("endGame",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
                     let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (confirmAction) in
                         self.hasNextQuestion = false
                         self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.share.rawValue)
-                        self.bottomScrollView?.contentOffset = CGPoint(x: screenWidth,y: 0)
+                        self.bottomScrollView?.contentOffset = CGPoint(x: LScreenW,y: 0)
                     })
                     alertController.addAction(confirmAction)
                     self.presentViewController(alertController, animated: true, completion: nil)
@@ -275,7 +268,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
                 print("===============\(objs)")
                 self.runInMainQueue({
                     self.setTitleAndRightBarButtonItemType(rightBarButtonItemType.share.rawValue)
-                    self.bottomScrollView?.contentOffset = CGPoint(x: screenWidth,y: 0)
+                    self.bottomScrollView?.contentOffset = CGPoint(x: LScreenW,y: 0)
                 })
                 
                 if objs[0]["problemId"] as! String != "" {
@@ -315,7 +308,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
     
     func evaluateButtonClick(button:UIButton){
         switch button.tag {
-        case GameButtonType.Continue.rawValue:
+        case GameEvaluateButtonType.Continue.rawValue:
             if hasNextQuestion == true {
                 self.evaluateBottomView?.boringButton?.enabled = true
                 self.evaluateBottomView?.interestingButton?.enabled = true
@@ -340,10 +333,10 @@ class GameQuestionPlayRoomViewController: UIViewController {
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }
             
-        case GameButtonType.Collect.rawValue:
+        case GameEvaluateButtonType.Collect.rawValue:
             self.collectPhoto()
 
-        case GameButtonType.Boring.rawValue:
+        case GameEvaluateButtonType.Boring.rawValue:
             self.evaluateBottomView?.boringButton?.enabled = false
             self.evaluateBottomView?.interestingButton?.enabled = false
             var dict = [String: AnyObject]()
@@ -352,7 +345,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
             }
             SocketManager.sharedInstance.sendMsg("boring", data: dict)
             
-        case GameButtonType.Fun.rawValue:
+        case GameEvaluateButtonType.Fun.rawValue:
             self.evaluateBottomView?.boringButton?.enabled = false
             self.evaluateBottomView?.interestingButton?.enabled = false
             var dict = [String: AnyObject]()
@@ -374,7 +367,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         guard SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) else{
             let alertController = UIAlertController(title: "tips", message: "请在设置中添加facebook账号", preferredStyle: .Alert)
             let setAction = UIAlertAction(title: "设置", style: .Default, handler: { (action) in
-                UIApplication.sharedApplication().openURL(NSURL(string: "prefs:root=FACEBOOK")!)
+                LApplication().openURL(NSURL(string: "prefs:root=FACEBOOK")!)
             })
             let cancelAction = UIAlertAction(title: "稍后", style: .Cancel, handler: { (action) in
                 self.presentActivityVC()
@@ -405,7 +398,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         dict["code"] = code
         dict["itemNum"] = -1
         
-        var arr = NSUserDefaults.standardUserDefaults().objectForKey("gainItems") as? [AnyObject]
+        var arr = LUserDefaults().objectForKey("gainItems") as? [AnyObject]
         if arr == nil {
             arr = [AnyObject]()
         }
@@ -414,7 +407,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
         do {
             json = try NSJSONSerialization.dataWithJSONObject(dict, options: .PrettyPrinted)
             arr!.append(json!)
-            NSUserDefaults.standardUserDefaults().setObject(arr, forKey: "gainItems")
+            LUserDefaults().setObject(arr, forKey: "gainItems")
         }catch{
             
         }
@@ -424,7 +417,7 @@ class GameQuestionPlayRoomViewController: UIViewController {
                 for (index, value) in arr!.enumerate() {
                     if value.isEqual(json!) {
                         arr?.removeAtIndex(index)
-                        NSUserDefaults.standardUserDefaults().setObject(arr, forKey: "gainItems")
+                        LUserDefaults().setObject(arr, forKey: "gainItems")
                         break
                     }
                 }

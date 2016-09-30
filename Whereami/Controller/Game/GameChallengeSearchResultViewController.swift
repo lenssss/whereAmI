@@ -12,18 +12,13 @@ class GameChallengeSearchResultViewController: UIViewController,UITableViewDeleg
 
     var tableView:UITableView? = nil
     var searchText:String? = nil
-    var currentFriends:[FriendsModel]? = nil
-    var matchUsers:[FriendsModel]? = nil
+    var currentFriends:[FriendsModel]? = nil //查询所得列表
+    var matchUsers:[FriendsModel]? = nil //选中
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         if GameParameterManager.sharedInstance.matchUser == nil {
             GameParameterManager.sharedInstance.matchUser = [FriendsModel]()
@@ -37,7 +32,7 @@ class GameChallengeSearchResultViewController: UIViewController,UITableViewDeleg
         self.tableView?.registerClass(GameChallengeSelectFriendTableViewCell.self, forCellReuseIdentifier: "GameChallengeSelectFriendTableViewCell")
         self.tableView?.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0))
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillShow(notification)
         }
     }

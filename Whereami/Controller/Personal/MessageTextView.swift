@@ -65,7 +65,7 @@ class MessageTextView: UITextView {
     }
     
     func setup() {
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UITextViewTextDidChangeNotification, object: nil).subscribeNext { (anyObj) in
+        LNotificationCenter().rac_addObserverForName(UITextViewTextDidChangeNotification, object: nil).subscribeNext { (anyObj) in
             self.setNeedsDisplay()
         }
         self.placeHolderTextColor = UIColor.lightGrayColor()

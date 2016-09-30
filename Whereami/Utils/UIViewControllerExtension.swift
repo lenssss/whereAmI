@@ -30,5 +30,13 @@ public extension UIViewController {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, secs * Int64(NSEC_PER_SEC)), dispatch_get_main_queue(), queue)
     }
     
-    
+    public func setConfig() {
+        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
+        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
+            self.edgesForExtendedLayout = .None
+        }
+    }
 }

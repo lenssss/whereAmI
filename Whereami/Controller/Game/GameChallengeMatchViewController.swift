@@ -12,20 +12,15 @@ import SVProgressHUD
 class GameChallengeMatchViewController: UIViewController {
     
     var timer:NSTimer? = nil
-    var matchTime:Int = 10
     var timeLabel:UILabel? = nil
-    var isMatch:Bool = false
+    
+    var matchTime:Int = 10 //匹配时间
+    var isMatch:Bool = false //是否匹配到
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
 
         self.setUI()
         self.addTimer()
@@ -58,7 +53,6 @@ class GameChallengeMatchViewController: UIViewController {
         let avatarUrl = user?.headPortraitUrl != nil ? user?.headPortraitUrl:""
         
         let logoView = UIImageView()
-//        logoView.setImageWithString(avatarUrl!, placeholderImage: UIImage(named: "avator.png")!)
         logoView.kf_setImageWithURL(NSURL(string:avatarUrl!)!, placeholderImage: UIImage(named: "avator.png"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         logoView.contentMode = .ScaleAspectFit
         logoView.layer.masksToBounds = true
@@ -114,7 +108,6 @@ class GameChallengeMatchViewController: UIViewController {
         
         SocketManager.sharedInstance.sendMsg("startChangellengeRandomBattle", data: dict, onProto: "startChangellengeRandomBattleed") { (code, objs) in
             if code == statusCode.Normal.rawValue{
-//                CoreDataManager.sharedInstance.consumeLifeItem()
                 self.isMatch = true
                 print("=====================\(objs)")
                 let matchDetailModel = MatchDetailModel.getModelFromDictionary(objs[0] as! [String : AnyObject])
@@ -135,7 +128,7 @@ class GameChallengeMatchViewController: UIViewController {
         if self.matchTime <= 0 {
             self.dismissViewControllerAnimated(false, completion: {
                 if self.isMatch {
-                    NSNotificationCenter.defaultCenter().postNotificationName(KNotificationPushToBattleDetailsVC, object: nil)
+                    LNotificationCenter().postNotificationName(KNotificationPushToBattleDetailsVC, object: nil)
                 }
             })
             self.timer?.invalidate()

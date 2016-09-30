@@ -29,7 +29,7 @@ class ChooseLoginItemViewController: UIViewController,UINavigationControllerDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+        LApplication().setStatusBarHidden(false, withAnimation: .None)
         self.setNeedsStatusBarAppearanceUpdate()
     }
     

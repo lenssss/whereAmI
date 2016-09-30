@@ -19,6 +19,8 @@ class PersonalMainViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setConfig()
 
         // Do any additional setup after loading the view.
         self.title = NSLocalizedString("Personal",tableName:"Localizable", comment: "")

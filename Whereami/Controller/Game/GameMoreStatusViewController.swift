@@ -15,21 +15,16 @@ class GameMoreStatusViewController: UIViewController,UITableViewDelegate,UITable
     
     typealias theCallback = () -> Void
     
-    var status:String? = nil
     var tableView:UITableView? = nil
-    var battleList:BattleListModel? = nil
-    var BattleDetailList:[BattleDetailModel]? = nil
-    var page:Int? = 1
+    
+    var status:String? = nil //战斗状态(myturn,valid,end)
+    var battleList:BattleListModel? = nil //战斗列表
+    var BattleDetailList:[BattleDetailModel]? = nil 
+    var page:Int? = 1 //页数
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         self.BattleDetailList = [BattleDetailModel]()
         self.setUI()
     }
@@ -146,6 +141,14 @@ class GameMoreStatusViewController: UIViewController,UITableViewDelegate,UITable
             alertController.addAction(cancelAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+        else if self.status == "valid" {
+            if model.battleType == "challengeFri" || model.battleType == "challengeRan" {
+                self.presentToWaitingDetailsVC(battleId!,type: "challenge")
+            }
+            else{
+                self.presentToWaitingDetailsVC(battleId!,type: "classic")
+            }
+        }
         else if self.status == "end" {
             let viewController = GameEndGameViewController()
             viewController.battleId = battleId
@@ -211,12 +214,66 @@ class GameMoreStatusViewController: UIViewController,UITableViewDelegate,UITable
                         battleDetailsVC.matchDetailModel = matchDetailModel
                         battleDetailsVC.hidesBottomBarWhenPushed = true
                         let nav = GameMainNavigationViewController(rootViewController: battleDetailsVC)
-                        let window = UIApplication.sharedApplication().keyWindow?.rootViewController
+                        let window = LApplication().keyWindow?.rootViewController
                         window!.presentViewController(nav, animated: true, completion: nil)
                     })
                 }
             }
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
+            }
+            else if code == statusCode.Overtime.rawValue {
+                self.presentOvertimeAlert()
+            }
+            else if code == statusCode.Error.rawValue {
+                self.presentErrorAlert()
+            }
         })
+    }
+    
+    func presentToWaitingDetailsVC(battleId:String,type:String){
+        var dic = [String:AnyObject]()
+        dic["battleId"] = battleId
+        self.runInMainQueue {
+            SVProgressHUD.setBackgroundColor(UIColor.clearColor())
+            SVProgressHUD.show()
+        }
+        
+        SocketManager.sharedInstance.sendMsg("getBattleDetails", data: dic, onProto: "getBattleDetailsed") { (code, objs) in
+            self.runInMainQueue({
+                SVProgressHUD.dismiss()
+            })
+            if code == statusCode.Normal.rawValue {
+                let battleEndModel = BattleEndModel.getModelFromObject(objs)
+                self.runInMainQueue({
+                    if type == "classic" {
+                        let battleDetailsVC = GameClassicBattleDetailsViewController()
+                        battleDetailsVC.isWaiting = true
+                        battleDetailsVC.waitingDetails = battleEndModel
+                        battleDetailsVC.hidesBottomBarWhenPushed = true
+                        let nav = GameMainNavigationViewController(rootViewController: battleDetailsVC)
+                        let window = LApplication().keyWindow?.rootViewController
+                        window!.presentViewController(nav, animated: true, completion: nil)
+                    }
+                    else{
+                        let viewController = GameEndGameViewController()
+                        viewController.battleId = battleId
+                        viewController.hidesBottomBarWhenPushed = true
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                        viewController.restartButton?.hidden = true
+                    }
+                })
+            }
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
+            }
+            else if code ==  statusCode.Overtime.rawValue {
+                self.presentOvertimeAlert()
+            }
+            else if code == statusCode.Error.rawValue {
+                self.presentErrorAlert()
+            }
+        }
     }
     
     func presentToPlayRoomVC(battleId:String){
@@ -243,6 +300,15 @@ class GameMoreStatusViewController: UIViewController,UITableViewDelegate,UITable
                         })
                     }
                 }
+            }
+            else if code == statusCode.Complete.rawValue {
+                self.presentCompleteAlert()
+            }
+            else if code == statusCode.Overtime.rawValue {
+                self.presentOvertimeAlert()
+            }
+            else if code == statusCode.Error.rawValue {
+                self.presentErrorAlert()
             }
         })
     }
@@ -323,6 +389,40 @@ class GameMoreStatusViewController: UIViewController,UITableViewDelegate,UITable
     func againGameStatusItem(tapGesture:UITapGestureRecognizer) {
         let slideItemView:SlideItemView = tapGesture.view as! SlideItemView
         print("again section: \(slideItemView.section) row: \(slideItemView.row)")
+    }
+    
+    func presentOvertimeAlert(){
+        self.runInMainQueue {
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("overtime",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.downLoadNewData()
+            })
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func presentCompleteAlert(){
+        self.runInMainQueue {
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("complete",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.downLoadNewData()
+            })
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    
+    func presentErrorAlert(){
+        self.runInMainQueue {
+            let alertController = UIAlertController(title: NSLocalizedString("warning",tableName:"Localizable", comment: ""), message: NSLocalizedString("error",tableName:"Localizable", comment: ""), preferredStyle: .Alert)
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok",tableName:"Localizable", comment: ""), style: .Default, handler: { (action) in
+                self.downLoadNewData()
+            })
+            alertController.addAction(confirmAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

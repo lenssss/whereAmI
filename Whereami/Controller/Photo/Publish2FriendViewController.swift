@@ -18,16 +18,12 @@ class Publish2FriendViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "选择好友"
+        
+        self.title = NSLocalizedString("chooseOpponents",tableName:"Localizable", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.setCustomBolderFontWithSize(15.0),NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.setConfig()
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
         self.chooseList = [String]()
         self.setupUI()
     }

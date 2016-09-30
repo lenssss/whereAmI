@@ -11,6 +11,7 @@ import UIKit
 class ContactIncreaseFriendSearchResultViewController: ContactMainViewSearchResultViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell:ContactItemTableViewCell = tableView.dequeueReusableCellWithIdentifier("ContactItemTableViewCell", forIndexPath: indexPath) as! ContactItemTableViewCell
         let friendModel = currentFriends![indexPath.row]
 

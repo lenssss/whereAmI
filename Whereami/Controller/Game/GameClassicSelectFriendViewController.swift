@@ -9,22 +9,17 @@
 import UIKit
 
 class GameClassicSelectFriendViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchBarDelegate {
-    var questionModel:QuestionModel?
-    var tableView:UITableView?
-    var searchResultVC: GameClassicSearchResultViewController?
-    var searchController:UISearchController?
-    var friendList:[FriendsModel]?
+    var questionModel:QuestionModel? = nil
+    var tableView:UITableView? = nil
+    var searchResultVC: GameClassicSearchResultViewController? = nil
+    var searchController:UISearchController? = nil
+    
+    var friendList:[FriendsModel]? = nil //好友列表
     //var gameRange:CountryModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.title = NSLocalizedString("chooseOpponents",tableName:"Localizable", comment: "")
         
@@ -32,7 +27,7 @@ class GameClassicSelectFriendViewController: UIViewController,UITableViewDelegat
         
         self.friendList = CoreDataManager.sharedInstance.fetchAllFriends()
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.searchController?.active = false
         }
         
@@ -91,7 +86,6 @@ class GameClassicSelectFriendViewController: UIViewController,UITableViewDelegat
         let cell:GameClassicSelectFriendTableViewCell = tableView.dequeueReusableCellWithIdentifier("GameClassicSelectFriendTableViewCell", forIndexPath: indexPath) as! GameClassicSelectFriendTableViewCell
         let friend = friendList![indexPath.row]
         let avatar = friend.headPortrait != nil ? friend.headPortrait : ""
-//        cell.avatar?.setImageWithString(avatar!, placeholderImage: UIImage(named: "avator.png")!)
         cell.avatar?.kf_setImageWithURL(NSURL(string:avatar!)!, placeholderImage: UIImage(named: "avator.png"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         cell.chatName?.text = friendList![indexPath.row].nickname
         cell.location?.text = "chengdu,China"

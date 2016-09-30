@@ -22,13 +22,7 @@ class PersonalSettingsViewController: UIViewController,UITableViewDataSource,UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.calculateDiskCacheSizeWithCompletionHandler { (size) in
             self.cacheSize = size
@@ -181,8 +175,7 @@ class PersonalSettingsViewController: UIViewController,UITableViewDataSource,UIT
 //            }
         }
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        
+        let userDefaults = LUserDefaults()
         userDefaults.removeObjectForKey("sessionId")
         userDefaults.removeObjectForKey("uniqueId")
         userDefaults.synchronize()
@@ -196,14 +189,14 @@ class PersonalSettingsViewController: UIViewController,UITableViewDataSource,UIT
         
         JPUSHService.setAlias("", callbackSelector: nil, object: nil)
         
-        let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
+        let currentWindow = (LApplication().delegate!.window)!
         currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
     }
     
     func present2setting(){
         let url = NSURL(string: UIApplicationOpenSettingsURLString)
-        if UIApplication.sharedApplication().canOpenURL(url!){
-            UIApplication.sharedApplication().openURL(url!)
+        if LApplication().canOpenURL(url!){
+            LApplication().openURL(url!)
         }
     }
     

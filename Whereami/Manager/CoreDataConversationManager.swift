@@ -77,7 +77,7 @@ class CoreDataConversationManager: NSObject {
         let context = dbConversation?.managedObjectContext
         context?.MR_saveToPersistentStoreWithCompletion({ (succeed, error) -> Void in
             if succeed {
-                 NSNotificationCenter.defaultCenter().postNotificationName(KNotificationConversationChanges, object: nil)
+                 LNotificationCenter().postNotificationName(KNotificationConversationChanges, object: nil)
             }
         })
         

@@ -27,24 +27,19 @@ class ChatMainViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.title = NSLocalizedString("Chat",tableName:"Localizable", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setupUI()
+        
         let status = SocketManager.sharedInstance.socket?.status
         if status == SocketIOClientStatus.Connected {
             self.updateConversations()
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.searchController?.active = false
         }
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationConversationChanges, object: nil).subscribeNext { (obj) in
+        LNotificationCenter().rac_addObserverForName(KNotificationConversationChanges, object: nil).subscribeNext { (obj) in
             self.updateConversations()
         }
     }

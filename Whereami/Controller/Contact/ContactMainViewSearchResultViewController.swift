@@ -18,13 +18,7 @@ class ContactMainViewSearchResultViewController: UIViewController,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.tableView = UITableView()
         self.view.addSubview(self.tableView!)
@@ -34,7 +28,7 @@ class ContactMainViewSearchResultViewController: UIViewController,UITableViewDel
         self.tableView?.registerClass(ContactItemTableViewCell.self, forCellReuseIdentifier: "ContactItemTableViewCell")
         self.tableView?.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillShow(notification)
         }
 
@@ -100,7 +94,7 @@ class ContactMainViewSearchResultViewController: UIViewController,UITableViewDel
                     cell.addButton?.setTitle(NSLocalizedString("added",tableName:"Localizable", comment: ""), forState: .Normal)
                     cell.addButton?.enabled = false
                 })
-                NSNotificationCenter.defaultCenter().postNotificationName("addFriended", object: friend)
+                LNotificationCenter().postNotificationName("addFriended", object: friend)
             }
         })
     }
@@ -108,7 +102,7 @@ class ContactMainViewSearchResultViewController: UIViewController,UITableViewDel
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let friendModel:FriendsModel = currentFriends![indexPath.row]
         self.dismissViewControllerAnimated(false) { 
-            NSNotificationCenter.defaultCenter().postNotificationName(KNotificationDismissSearchView, object: friendModel.friendId)
+            LNotificationCenter().postNotificationName(KNotificationDismissSearchView, object: friendModel.friendId)
         }
     }
     

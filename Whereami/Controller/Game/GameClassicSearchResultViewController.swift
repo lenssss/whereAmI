@@ -18,13 +18,8 @@ class GameClassicSearchResultViewController: UIViewController,UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.setConfig()
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
         self.tableView = UITableView()
         self.view.addSubview(self.tableView!)
         self.tableView?.delegate = self
@@ -32,7 +27,7 @@ class GameClassicSearchResultViewController: UIViewController,UITableViewDelegat
         self.tableView?.registerClass(GameClassicSelectFriendTableViewCell.self, forCellReuseIdentifier: "GameClassicSelectFriendTableViewCell")
         self.tableView?.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillShow(notification)
         }
     }

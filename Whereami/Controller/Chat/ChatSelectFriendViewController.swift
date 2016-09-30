@@ -24,21 +24,15 @@ class ChatSelectFriendViewController: UIViewController,UITableViewDelegate,UITab
         self.title = NSLocalizedString("chooseOpponents",tableName:"Localizable", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setupUI()
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.searchController?.active = false
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationDismissSearchView, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(KNotificationDismissSearchView, object: nil).subscribeNext { (notification) -> Void in
             let id = notification.object! as! String
             self.runInMainQueue({
                 let personalVC = TourRecordsViewController()

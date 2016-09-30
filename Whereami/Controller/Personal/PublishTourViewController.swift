@@ -23,6 +23,7 @@ class PublishTourViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setConfig()
         self.photoRows = ceil(CGFloat(self.photoArray!.count)/3.0)
         self.getPhoto()
         self.setUI()

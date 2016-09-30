@@ -17,13 +17,7 @@ class PersonalAchievementsViewController: UIViewController,UICollectionViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.title = NSLocalizedString("achievement",tableName:"Localizable", comment: "")
         

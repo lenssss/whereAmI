@@ -13,20 +13,17 @@ class GameChallengeBenameViewController: UIViewController {
     var challengeLogoView:UIImageView? = nil
     var tipLabel:UILabel? = nil
     var nameTextField:UITextField? = nil
-    var gameRange:CountryModel? = nil
-    var isRandom:Bool? = nil
-    var matchUsers:[FriendsModel]? = nil
+    var gameRange:CountryModel? = nil //地区
+    var isRandom:Bool? = nil //是否挑战
+    var matchUsers:[FriendsModel]? = nil //匹配对手
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
+        
         self.title = NSLocalizedString("challengeFriend",tableName:"Localizable", comment: "")
+        
         self.matchUsers = GameParameterManager.sharedInstance.matchUser
         if self.matchUsers == nil {
             GameParameterManager.sharedInstance.matchUser = [FriendsModel]()

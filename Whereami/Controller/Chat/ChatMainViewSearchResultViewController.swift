@@ -22,13 +22,7 @@ class ChatMainViewSearchResultViewController: UIViewController,UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.tableView = UITableView()
         self.view.addSubview(self.tableView!)

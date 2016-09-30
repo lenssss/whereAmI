@@ -16,27 +16,20 @@ class GameClassicBattleDetailsViewController: UIViewController {
     var wheelView:UIView? = nil
     var quitButton:UIButton? = nil
     var countButton:UIButton? = nil
-    var matchUser:FriendsModel? = nil
-    var currentUser:UserModel? = nil
-    var matchDetailModel:MatchDetailModel? = nil
-    var isRandom:Bool? = nil
-    var kindModel:GameKindModel? = nil
-    var battle:BattleModel? = nil
-    var isWaiting:Bool? = false
-    var waitingDetails:BattleEndModel? = nil
-    
     private var wheelVC:GameClassicWheelViewController? = nil
+    
+    var matchUser:FriendsModel? = nil //匹配对手
+    var currentUser:UserModel? = nil //当前用户
+    var matchDetailModel:MatchDetailModel? = nil //匹配对战信息
+    var isRandom:Bool? = nil //是否挑战
+    var kindModel:GameKindModel? = nil //题目类别
+    var battle:BattleModel? = nil //战斗信息
+    var isWaiting:Bool? = false //是否等待
+    var waitingDetails:BattleEndModel? = nil //等待时的对手信息
     
     override func viewDidLoad() {
         
-        super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.currentUser = UserModel.getCurrentUser()
         if GameParameterManager.sharedInstance.gameMode != nil {

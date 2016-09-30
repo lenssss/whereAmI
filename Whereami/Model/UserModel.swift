@@ -139,7 +139,7 @@ class UserModel: NSObject {
     }
     
     class func getCurrentUser() -> UserModel?{
-        let sessionId = NSUserDefaults.standardUserDefaults().objectForKey("sessionId") as? String
+        let sessionId = LUserDefaults().objectForKey("sessionId") as? String
         
         guard sessionId != nil else{
             return nil

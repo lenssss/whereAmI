@@ -28,13 +28,7 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.title = NSLocalizedString("shop",tableName:"Localizable", comment: "")
         
@@ -298,7 +292,7 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
             dict["code"] = productId
             dict["itemNum"] = 1
             
-            var arr = NSUserDefaults.standardUserDefaults().objectForKey("gainItems") as? [AnyObject]
+            var arr = LUserDefaults().objectForKey("gainItems") as? [AnyObject]
             if arr == nil {
                 arr = [AnyObject]()
             }
@@ -307,7 +301,7 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
             do {
                 json = try NSJSONSerialization.dataWithJSONObject(dict, options: .PrettyPrinted)
                 arr!.append(json!)
-                NSUserDefaults.standardUserDefaults().setObject(arr, forKey: "gainItems")
+                LUserDefaults().setObject(arr, forKey: "gainItems")
             }catch{
                 
             }
@@ -320,7 +314,7 @@ class PersonalShopViewController: UIViewController,UITableViewDataSource,UITable
                     for (index, value) in arr!.enumerate() {
                         if value.isEqual(json!) {
                             arr?.removeAtIndex(index)
-                            NSUserDefaults.standardUserDefaults().setObject(arr, forKey: "gainItems")
+                            LUserDefaults().setObject(arr, forKey: "gainItems")
                             break
                         }
                     }

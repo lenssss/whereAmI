@@ -27,13 +27,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setupUI()
         self.title = "SIGN UP"
@@ -43,7 +37,7 @@ class SignUpViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+        LApplication().setStatusBarHidden(false, withAnimation: .None)
     }
     
     func nextButtonActivited () {
@@ -129,7 +123,7 @@ class SignUpViewController: UIViewController {
                     let userModel = UserModel.getModelFromDictionary(modelDic)
                     CoreDataManager.sharedInstance.increaseOrUpdateUser(userModel)
                     
-                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    let userDefaults = LUserDefaults()
                     print("==============\(userDefaults.objectForKey("sessionId"))")
                     
                     userDefaults.setObject(userModel.sessionId, forKey: "sessionId")

@@ -13,7 +13,7 @@ import SWTableViewCell
 import SocketIOClientSwift
 //import SDWebImage
 
-class ContactMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchBarDelegate,SWTableViewCellDelegate {
+class ContactMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate,UISearchBarDelegate,SWTableViewCellDelegate,UINavigationControllerDelegate {
     
     var tableView:UITableView? = nil
     //    private var currentConversations:[ConversationModel]? = nil
@@ -30,16 +30,12 @@ class ContactMainViewController: UIViewController,UITableViewDelegate,UITableVie
         self.title = NSLocalizedString("Contact",tableName:"Localizable", comment: "")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.customFontWithStyle("Bold", size:18.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()]
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setupUI()
         self.registerNotification()
+        
+        self.navigationController!.delegate = self
     }
     
     func setupUI() {
@@ -64,11 +60,11 @@ class ContactMainViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func registerNotification(){
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.searchController?.active = false
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationDismissSearchView, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(KNotificationDismissSearchView, object: nil).subscribeNext { (notification) -> Void in
             let id = notification.object! as! String
             self.runInMainQueue({
                 let personalVC = TourRecordsViewController()
@@ -78,7 +74,7 @@ class ContactMainViewController: UIViewController,UITableViewDelegate,UITableVie
             })
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName("addFriended", object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName("addFriended", object: nil).subscribeNext { (notification) -> Void in
 //            let friend = notification.object! as! FriendsModel
             self.currentFriends = CoreDataManager.sharedInstance.fetchAllFriends()
             self.tableView?.reloadData()
@@ -98,7 +94,7 @@ class ContactMainViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool){
-        if viewController.isKindOfClass(ContactMainViewController.self) {
+        if viewController.isKindOfClass(ContactMainViewController.self) || viewController.isKindOfClass(ConversationViewController.self) {
             self.navigationController?.navigationBar.backgroundColor = UIColor.getNavigationBarColor()
             self.navigationController?.navigationBar.barTintColor = UIColor.getNavigationBarColor()
         }else {
@@ -108,7 +104,7 @@ class ContactMainViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool){
-        if viewController.isKindOfClass(ContactMainViewController.self) {
+        if viewController.isKindOfClass(ContactMainViewController.self) || viewController.isKindOfClass(ConversationViewController.self) {
             self.navigationController?.navigationBar.backgroundColor = UIColor.getNavigationBarColor()
             self.navigationController?.navigationBar.barTintColor = UIColor.getNavigationBarColor()
         }else {

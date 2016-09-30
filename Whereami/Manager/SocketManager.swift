@@ -68,16 +68,8 @@ class SocketManager: NSObject {
     func sendMsg(proto:String,data:AnyObject,onProto:String,callBack:ObjectCallback) {
         
         let onAckBack = socket!.emitWithAck(proto, data)
-//        if proto == "uploadQueAndAns" {
-//            let myData = NSKeyedArchiver.archivedDataWithRootObject(data)
-//            let count = myData.length / sizeof(UInt8)
-//            var array = [UInt8](count: count, repeatedValue: 0)
-//            myData.getBytes(&array, length:count * sizeof(UInt8))
-//            print(array)
-//        }
         onAckBack(timeoutAfter: 0){(passedData:[AnyObject]) ->Void in
             print("got ack: \(passedData)")
-
         }
         
         //只监听一次

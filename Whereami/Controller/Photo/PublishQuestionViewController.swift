@@ -20,10 +20,10 @@ class PublishQuestionViewController: UIViewController,UITableViewDataSource,UITa
         self.setUI()
         self.keyboardHidden = true
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillShowNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillShow(notification)
         }
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(UIKeyboardWillHideNotification, object: nil).subscribeNext { (notification) -> Void in
             self.keyboardWillHide(notification)
         }
     }

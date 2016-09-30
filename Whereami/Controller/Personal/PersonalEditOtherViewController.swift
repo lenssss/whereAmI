@@ -19,19 +19,13 @@ class PersonalEditOtherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         if type == editType.nickname {
-            self.title = "Nickname"
+            self.title = NSLocalizedString("Nickname",tableName:"Localizable", comment: "")
         }
         else{
-            self.title = "Region"
+            self.title = NSLocalizedString("Region",tableName:"Localizable", comment: "")
         }
         
         self.setUI()
@@ -86,8 +80,6 @@ class PersonalEditOtherViewController: UIViewController {
         else if type == editType.region{
             dic["countryName"] = self.textField?.text
         }
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.color = UIColor.clearColor()
         SVProgressHUD.setBackgroundColor(UIColor.clearColor())
         SVProgressHUD.show()
         SocketManager.sharedInstance.sendMsg("accountUpdate", data: dic, onProto: "accountUpdateed") { (code, objs) in
@@ -101,7 +93,6 @@ class PersonalEditOtherViewController: UIViewController {
                     CoreDataManager.sharedInstance.increaseOrUpdateUser(currentUser!)
                 }
                 self.runInMainQueue({
-//                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                     SVProgressHUD.dismiss()
                     self.pushBack()
                 })

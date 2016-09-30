@@ -13,18 +13,13 @@ class GameClassicStartGameViewController: UIViewController {
     var questionClassView:QuestionClassView? = nil
     var restartButton:UIButton? = nil
     var startButton:UIButton? = nil
-    var matchDetailModel:MatchDetailModel? = nil
-    var kindModel:GameKindModel? = nil
+    
+    var matchDetailModel:MatchDetailModel? = nil //匹配战斗信息
+    var kindModel:GameKindModel? = nil //题目类别
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         self.matchDetailModel = GameParameterManager.sharedInstance.matchDetailModel
         self.getKindOfGame()
         self.setUI()

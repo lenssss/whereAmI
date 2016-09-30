@@ -25,26 +25,18 @@ class ContactPresentNewGameViewController: UIViewController,UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countries = FileManager.sharedInstance.readCountryListFromFile()
         
+        countries = FileManager.sharedInstance.readCountryListFromFile()
         let country = countries![0]
         self.gameRange = country
-        
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
-        
         self.title = NSLocalizedString("newGame",tableName:"Localizable", comment: "")
         
+        self.setConfig()
         self.setUI()
     }
     
     func setUI(){
-        self.view.backgroundColor = UIColor.getNavigationBarColor()
+        self.view.backgroundColor = UIColor.getGameColor()
         
         let backBtn = TheBackBarButton.initWithAction({
             let viewControllers = self.navigationController?.viewControllers

@@ -13,13 +13,7 @@ class GameBedgeModeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         let getMyBtn = UIButton()
         getMyBtn.setTitle("获取徽章", forState: .Normal)

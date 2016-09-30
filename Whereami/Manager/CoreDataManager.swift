@@ -117,11 +117,6 @@ class CoreDataManager: NSObject {
             dbUser!.status = model.status
             dbUser!.wins = model.wins
             let context = dbUser?.managedObjectContext
-//            context?.MR_saveOnlySelfWithCompletion({ (succeed, error) -> Void in
-//                if succeed {
-//                    
-//                }
-//            })]
             context?.MR_saveToPersistentStoreAndWait()
         }
     }

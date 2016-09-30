@@ -82,7 +82,7 @@ class PersonalCollectionTableViewCell: UITableViewCell,UICollectionViewDataSourc
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        NSNotificationCenter.defaultCenter().postNotificationName("touchOnCollectionViewCell", object: indexPath.row,userInfo: ["photoes":self.photoIdArray!])
+        LNotificationCenter().postNotificationName("touchOnCollectionViewCell", object: indexPath.row,userInfo: ["photoes":self.photoIdArray!])
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

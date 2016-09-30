@@ -43,13 +43,7 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.navigationController?.delegate = self
         
@@ -982,8 +976,7 @@ class TourRecordsViewController: UIViewController,UINavigationControllerDelegate
         dic["userId"] = currentUser?.id
         dic["type"] = "jpg"
         dic["content"] = UIImageJPEGRepresentation(image, 1.0)
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.color = UIColor.clearColor()
+        
         SVProgressHUD.show()
         SocketManager.sharedInstance.sendMsg("uploadImageFile", data: dic, onProto: "uploadImageFileed", callBack: { (code, objs) -> Void in
             if code == statusCode.Normal.rawValue {

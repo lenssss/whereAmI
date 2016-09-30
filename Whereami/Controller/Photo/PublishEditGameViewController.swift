@@ -121,9 +121,6 @@ class PublishEditGameViewController: UIViewController,UITableViewDataSource,UITa
         self.questionModel?.countryCode = rangeCodeArray![rangeIndex!]
         var dic = PhotoModel.getPhotoDictionaryFromQuestionModel(self.questionModel!)
         
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.color = UIColor.clearColor()
-//        SVProgressHUD.setBackgroundColor(UIColor.clearColor())
         SVProgressHUD.show()
         SVProgressHUD.setDefaultMaskType(.Gradient)
         SocketManager.sharedInstance.sendMsg("uploadImageFile", data: dic!, onProto: "uploadImageFileed", callBack: { (code, objs) -> Void in
@@ -159,6 +156,7 @@ class PublishEditGameViewController: UIViewController,UITableViewDataSource,UITa
     }
     
     func getClassAndRange(){
+        
         self.classList = FileManager.sharedInstance.readGameKindListFromFile()
         if classList != nil {
             self.classNameArray = GameKindModel.getNamesFromModels(classList!)
@@ -167,6 +165,7 @@ class PublishEditGameViewController: UIViewController,UITableViewDataSource,UITa
         else{
             self.classList = [GameKindModel]()
         }
+        
         let ranges = FileManager.sharedInstance.readCountryListFromFile()
         if ranges != nil {
             self.rangeList = [CountryModel]()

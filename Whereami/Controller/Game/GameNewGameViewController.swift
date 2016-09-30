@@ -18,15 +18,15 @@ class GameNewGameViewController: UIViewController,UICollectionViewDelegate,UICol
     var competitorRandomButton:UIButton? = nil
     var startGameButton:UIButton? = nil
     var gameModeLabel:UILabel? = nil
-    var countries:[CountryModel]? = nil
-    var gameModel:Int? = 1
-    var competitor:Int? = 3
-    var gameRange:CountryModel? = nil
     let selectGameModeView:UIImageView = UIImageView(image: UIImage(named: "select"))
     let selectCompetitorView:UIImageView = UIImageView(image: UIImage(named: "select"))
-    
     var leftConstraintsOfSelectedGameModeView:NSLayoutConstraint? = nil
     var leftConstraintsOfSelectedCompetitorView:NSLayoutConstraint? = nil
+    
+    var countries:[CountryModel]? = nil //所有国家
+    var gameModel:Int? = 1 //游戏模式
+    var competitor:Int? = 3 //游戏类型
+    var gameRange:CountryModel? = nil //选中国家
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +38,11 @@ class GameNewGameViewController: UIViewController,UICollectionViewDelegate,UICol
         let country = countries![0]
         self.gameRange = country
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         
         self.setUI()
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationPushToBattleDetailsVC, object: nil).subscribeNext { (notification) in
+        LNotificationCenter().rac_addObserverForName(KNotificationPushToBattleDetailsVC, object: nil).subscribeNext { (notification) in
             self.runInMainQueue({ 
                 let battleDetailsVC = GameChallengeBattleDetailsViewController()
                 self.navigationController?.pushViewController(battleDetailsVC, animated: true)

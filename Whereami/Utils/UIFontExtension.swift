@@ -43,8 +43,8 @@ public extension UIFont {
         }
         let fontUrl = NSURL.fileURLWithPath(path)
         let fontDataProvider =  CGDataProviderCreateWithURL(fontUrl)
-        let fontRef = CGFontCreateWithDataProvider(fontDataProvider)
-        CTFontManagerRegisterGraphicsFont(fontRef!, nil)
+        let fontRef = CGFontCreateWithDataProvider(fontDataProvider!)
+        CTFontManagerRegisterGraphicsFont(fontRef, nil)
         let fontName:NSString = CGFontCopyPostScriptName(fontRef)!
         let font = UIFont(name: fontName as String,size: size)
         return font

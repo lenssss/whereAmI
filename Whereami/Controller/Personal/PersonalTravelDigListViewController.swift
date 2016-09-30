@@ -22,23 +22,16 @@ class PersonalTravelDigListViewController: UIViewController,UITableViewDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.setConfig()
         
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
-        
-        self.title = "点赞列表"
+        self.title = NSLocalizedString("likeList",tableName:"Localizable", comment: "")
         self.models = [UserModel]()
         self.setUI()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        let hub = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        hub.color = UIColor.clearColor()
+        
         self.getModels(self.digList!) { (userData) in
             for item in userData {
                 let user = UserModel.getModelFromDictionaryById(item as! NSDictionary)
@@ -46,7 +39,6 @@ class PersonalTravelDigListViewController: UIViewController,UITableViewDelegate,
             }
             self.runInMainQueue({
                 self.tableView?.reloadData()
-//                MBProgressHUD.hideHUDForView(self.view, animated: true)
             })
         }
     }

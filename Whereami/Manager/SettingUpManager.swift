@@ -15,7 +15,7 @@ import SocketIOClientSwift
 
 public var KNotificationLogin: String { get{ return "KNotificationLogin"} }
 public var KNotificationGetRemind: String { get{ return "KNotificationGetRemind"} }
-public var KNotificationgetLevelupedremind: String { get{ return "KNotificationgetLevelupedremind"} }
+public var KNotificationGetLevelupedremind: String { get{ return "KNotificationgetLevelupedremind"} }
 public var KNotificationGetDanupedremind: String { get{ return "KNotificationGetDanupedremind"} }
 
 enum statusCode:Int {
@@ -58,7 +58,7 @@ class SettingUpManager: NSObject {
                 
                 SocketManager.sharedInstance.getMsg("levelupedremind", callBack: { (code, objs) in
                     if code == statusCode.Normal.rawValue {
-                        NSNotificationCenter.defaultCenter().postNotificationName(KNotificationgetLevelupedremind, object: objs)
+                        NSNotificationCenter.defaultCenter().postNotificationName(KNotificationGetLevelupedremind, object: objs)
                     }
                 })
                 
@@ -68,7 +68,7 @@ class SettingUpManager: NSObject {
                     }
                 })
          
-                let sessionId = NSUserDefaults.standardUserDefaults().objectForKey("sessionId") as? String
+                let sessionId = LUserDefaults().objectForKey("sessionId") as? String
                 if sessionId != nil {
                     let model = CoreDataManager.sharedInstance.fetchUser(sessionId!)
                     if model != nil {
@@ -83,7 +83,7 @@ class SettingUpManager: NSObject {
                                 let userModel = UserModel.getModelFromDictionary(modelDic)
                                 
                                 CoreDataManager.sharedInstance.increaseOrUpdateUser(userModel)
-                                let userDefaults = NSUserDefaults.standardUserDefaults()
+                                let userDefaults = LUserDefaults()
                                 userDefaults.setObject(userModel.sessionId, forKey: "sessionId")
                                 userDefaults.synchronize()
                                 print("autoLogin succeed")
@@ -93,10 +93,6 @@ class SettingUpManager: NSObject {
                                 self.getAccItems()
                                 self.gainItems()
                                 self.registAVClient(userModel)
-                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                    LocationManager.sharedInstance.setupLocation()
-                                    self.change2CustomTabbarVC()
-                                })
                             }
                             else{
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -124,12 +120,11 @@ class SettingUpManager: NSObject {
             })
         }
         
-//        SocketManager.sharedInstance.addObserver(self, forKeyPath: "socket.status", options: .New, context: nil)
-        
         LeanCloudManager.sharedInstance.setupApplication()
         
     }
     
+    //注册聊天client
     func registAVClient(currentUsr:UserModel) {
         let clientId = currentUsr.id
         LeanCloudManager.sharedInstance.openSessionWithClientId(clientId!) { (succeed, error) in
@@ -139,6 +134,7 @@ class SettingUpManager: NSObject {
         }
     }
     
+    //获取国家开放信息
     func getCountryOpendMsg(){
         var dict = [String:AnyObject]()
         dict["id"] = ""
@@ -151,6 +147,7 @@ class SettingUpManager: NSObject {
         })
     }
     
+    //获取所有游戏类型
     func getAllKindsOfGame(){
         var dict = [String:AnyObject]()
         dict["id"] = UserModel.getCurrentUser()?.id
@@ -162,6 +159,7 @@ class SettingUpManager: NSObject {
         }
     }
     
+    //获取所有好友
     func getFreinds(id:String){
         var dict = [String:AnyObject]()
         dict["accountId"] = id
@@ -176,6 +174,7 @@ class SettingUpManager: NSObject {
         }
     }
     
+    //获取个人道具数量
     func getAccItems(){
         var dict = [String: AnyObject]()
         dict["accountId"] = UserModel.getCurrentUser()?.id
@@ -194,8 +193,9 @@ class SettingUpManager: NSObject {
         }
     }
 
+    //获取道具列表
     func gainItems(){
-        var arr = NSUserDefaults.standardUserDefaults().objectForKey("gainItems") as? [NSData]
+        var arr = LUserDefaults().objectForKey("gainItems") as? [NSData]
         guard arr != nil && arr?.count != 0 else {
             return
         }
@@ -208,7 +208,7 @@ class SettingUpManager: NSObject {
                         for (index, value) in arr!.enumerate() {
                             if value.isEqual(json) {
                                 arr?.removeAtIndex(index)
-                                NSUserDefaults.standardUserDefaults().setObject(arr, forKey: "gainItems")
+                                LUserDefaults().setObject(arr, forKey: "gainItems")
                                 break
                             }
                         }
@@ -221,26 +221,16 @@ class SettingUpManager: NSObject {
         }
     }
     
+    //跳转登陆
     func change2ChooseLoginVC(){
-        let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
+        let currentWindow = (LApplication().delegate!.window)!
         currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
     }
     
+    //跳转主页
     func change2CustomTabbarVC(){
-        let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
+        let currentWindow = (LApplication().delegate!.window)!
         currentWindow!.rootViewController = CustomTabBarViewController()
     }
-    
-//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        if ((object?.isEqual(SocketManager.sharedInstance)) != nil) {
-//            if keyPath == "socket.status" {
-//                let status = change!["new"] as! Int
-//                if status != SocketIOClientStatus.Connected.rawValue {
-//                    let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
-//                    currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
-//                }
-//            }
-//        }
-//    }
     
 }

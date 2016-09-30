@@ -43,19 +43,11 @@ class CustomTabBarViewController: UITabBarController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
-        
-        let status = SocketManager.sharedInstance.socket?.status
-        if status != SocketIOClientStatus.Connected {
-            self.runInMainQueue({ 
-                let currentWindow = (UIApplication.sharedApplication().delegate!.window)!
-                currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
-            })
-        }
+        LApplication().setStatusBarHidden(false, withAnimation: .None)
     }
     
     func registerNotification(){
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationGetRemind, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(KNotificationGetRemind, object: nil).subscribeNext { (notification) -> Void in
             self.runInMainQueue({
                 self.tabBarController?.selectedIndex = 0
             })
@@ -80,7 +72,7 @@ class CustomTabBarViewController: UITabBarController{
             }
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationGetDanupedremind, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(KNotificationGetDanupedremind, object: nil).subscribeNext { (notification) -> Void in
             dispatch_sync(dispatch_get_main_queue(), {
                 let objs = notification.object!
                 self.dan = objs![0]["dan"] as? Int
@@ -88,11 +80,18 @@ class CustomTabBarViewController: UITabBarController{
             })
         }
         
-        NSNotificationCenter.defaultCenter().rac_addObserverForName(KNotificationgetLevelupedremind, object: nil).subscribeNext { (notification) -> Void in
+        LNotificationCenter().rac_addObserverForName(KNotificationGetLevelupedremind, object: nil).subscribeNext { (notification) -> Void in
             dispatch_sync(dispatch_get_main_queue(), {
                 let objs = notification.object!
                 self.level = objs![0]["level"] as? Int
                 self.presentAlertController()
+            })
+        }
+        
+        LNotificationCenter().rac_addObserverForName(KNotificationLoginVCWillShow, object: nil).subscribeNext { (notification) -> Void in
+            dispatch_sync(dispatch_get_main_queue(), {
+                let currentWindow = (LApplication().delegate!.window)!
+                currentWindow!.rootViewController = LoginNavViewController(rootViewController: ChooseLoginItemViewController())
             })
         }
     }
@@ -124,7 +123,7 @@ class CustomTabBarViewController: UITabBarController{
                     battleDetailsVC.matchDetailModel = matchDetailModel
                     battleDetailsVC.hidesBottomBarWhenPushed = true
                     let nav = GameMainNavigationViewController(rootViewController: battleDetailsVC)
-                    let window = UIApplication.sharedApplication().keyWindow?.rootViewController
+                    let window = LApplication().keyWindow?.rootViewController
                     window!.presentViewController(nav, animated: true, completion: nil)
                 })
             }

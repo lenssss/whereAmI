@@ -12,12 +12,15 @@ import SVProgressHUD
 class GameReportViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var tableView:UITableView? = nil
+    
     var problems:[String]? = nil
     var selectIndex:Int? = 0
     var problemId:String? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setConfig()
         
         self.title = "Report"
         

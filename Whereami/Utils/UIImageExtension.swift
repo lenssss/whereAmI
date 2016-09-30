@@ -22,7 +22,7 @@ extension UIImage {
         CGContextSetFillColorWithColor(ref, color.CGColor)
         CGContextFillRect(ref, rect)
         
-        let image:UIImage  = UIGraphicsGetImageFromCurrentImageContext()
+        let image:UIImage  = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
     }
@@ -31,17 +31,17 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
         let context = UIGraphicsGetCurrentContext();
         
-        CGContextTranslateCTM(context, 0, self.size.height);
-        CGContextScaleCTM(context, 1.0, -1.0);
-        CGContextSetBlendMode(context, .Normal);
+        CGContextTranslateCTM(context!, 0, self.size.height);
+        CGContextScaleCTM(context!, 1.0, -1.0);
+        CGContextSetBlendMode(context!, .Normal);
         let rect = CGRectMake(0, 0, self.size.width, self.size.height);
-        CGContextClipToMask(context, rect, self.CGImage);
+        CGContextClipToMask(context!, rect, self.CGImage!);
         color.setFill()
-        CGContextFillRect(context, rect);
+        CGContextFillRect(context!, rect);
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        return newImage;
+        return newImage!;
     }
     
     func resized_Image(newSize:CGSize, interpolationQuality quality:CGInterpolationQuality) -> UIImage {
@@ -121,11 +121,11 @@ extension UIImage {
         let newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height))
         let transposedRect = CGRectMake(0, 0, newRect.size.height, newRect.size.width)
         let imageRef = self.CGImage
-        let bitmap = CGBitmapContextCreate(nil, Int(newRect.size.width), Int(newRect.size.height), CGImageGetBitsPerComponent(imageRef), 0, CGImageGetColorSpace(imageRef), CGImageGetBitmapInfo(imageRef).rawValue)
-        CGContextConcatCTM(bitmap, transform)
-        CGContextSetInterpolationQuality(bitmap, quality)
-        CGContextDrawImage(bitmap, transpose ? transposedRect : newRect, imageRef)
-        let newImageRef = CGBitmapContextCreateImage(bitmap)
+        let bitmap = CGBitmapContextCreate(nil, Int(newRect.size.width), Int(newRect.size.height), CGImageGetBitsPerComponent(imageRef!), 0, CGImageGetColorSpace(imageRef!)!, CGImageGetBitmapInfo(imageRef!).rawValue)
+        CGContextConcatCTM(bitmap!, transform)
+        CGContextSetInterpolationQuality(bitmap!, quality)
+        CGContextDrawImage(bitmap!, transpose ? transposedRect : newRect, imageRef!)
+        let newImageRef = CGBitmapContextCreateImage(bitmap!)
         let newImage = UIImage(CGImage: newImageRef!)
         return newImage
     }
@@ -184,6 +184,6 @@ extension UIImage {
         self.drawInRect(CGRectMake(0, 0, size.width, size.height))
         let newImage=UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
 }

@@ -158,7 +158,7 @@ class GameClassicWheelViewController: UIViewController {
         var randomCount = 0
         
         if(resultDegreeArray?.count>1){
-            randomCount = random() % 2
+            randomCount = Int(arc4random() % 2)
         }
         
         let content = resultDegreeArray![randomCount]

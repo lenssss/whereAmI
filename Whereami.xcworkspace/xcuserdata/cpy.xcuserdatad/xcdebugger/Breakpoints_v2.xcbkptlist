@@ -19,182 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Photo/PublishCropperViewController.swift"
-            timestampString = "495096313.788189"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "updateAvator(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2).(closure #1)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.491033"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "348">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2).(closure #1).(closure #1)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.491154"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "1004">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Photo/PublishCropperViewController.swift"
-            timestampString = "495096313.788189"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "updateAvator(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Photo/PublishCropperViewController.swift"
-            timestampString = "495096313.788189"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "updateAvator(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Photo/PublishCropperViewController.swift"
-            timestampString = "495096736.848213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "updateAvator(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.500243"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "2000">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2).(closure #2)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.500615"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Photo/PublishCropperViewController.swift"
-            timestampString = "495096736.848213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "updateAvator(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.50216"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1824">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishCropperViewController.(updateAvator (__ObjC.UIImage) -&gt; ()).(closure #2).(closure #2)"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishCropperViewController.swift"
-                  timestampString = "495463459.5023"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Whereami/Controller/Game/GameChallengeMatchViewController.swift"
             timestampString = "495344856.4809"
             startingColumnNumber = "9223372036854775807"
@@ -202,7 +26,7 @@
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "backAction()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,7 +42,7 @@
             startingLineNumber = "153"
             endingLineNumber = "153"
             landmarkName = "backAction()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,39 +58,7 @@
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "backAction()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.GameChallengeMatchViewController.backAction () -&gt; ()"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Game/GameChallengeMatchViewController.swift"
-                  timestampString = "495463459.504239"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "752">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.GameChallengeMatchViewController.backAction () -&gt; ()"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Game/GameChallengeMatchViewController.swift"
-                  timestampString = "495463459.504349"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "1684">
-               </Location>
-            </Locations>
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -282,135 +74,7 @@
             startingLineNumber = "158"
             endingLineNumber = "158"
             landmarkName = "backAction()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishTourViewController.dismiss () -&gt; ()"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
-                  timestampString = "495463459.505998"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
-                  offsetFromSymbolStart = "584">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Whereami.PublishTourViewController.dismiss () -&gt; ()"
-                  moduleName = "Whereami"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
-                  timestampString = "495463459.506108"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
-                  offsetFromSymbolStart = "1280">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/PublishTourViewController.swift"
-            timestampString = "495426260.938243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "dismiss()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -426,7 +90,7 @@
             startingLineNumber = "111"
             endingLineNumber = "111"
             landmarkName = "publishTour()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -442,7 +106,39 @@
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "publishTour()"
-            landmarkType = "5">
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Whereami.PublishTourViewController.(publishTour () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Whereami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
+                  timestampString = "496907405.899888"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "502">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Whereami.PublishTourViewController.(publishTour () -&gt; ()).(closure #1).(closure #1).(closure #2)"
+                  moduleName = "Whereami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
+                  timestampString = "496907405.903912"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -458,7 +154,7 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "publishTour()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -474,71 +170,39 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "publishTour()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Game/GameClassicBattleDetailsViewController.swift"
-            timestampString = "495428315.654877"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "startGame()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Game/GameClassicBattleDetailsViewController.swift"
-            timestampString = "495428316.806143"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "startGame()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Game/GameQuestionPlayRoomViewController.swift"
-            timestampString = "495430115.354605"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "collectPhoto()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Game/GameQuestionPlayRoomViewController.swift"
-            timestampString = "495430116.161707"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "collectPhoto()"
-            landmarkType = "5">
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Whereami.PublishTourViewController.(publishTour () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Whereami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
+                  timestampString = "496907405.923037"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "242">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Whereami.PublishTourViewController.(publishTour () -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "Whereami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Personal/PublishTourViewController.swift"
+                  timestampString = "496907405.925874"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -554,37 +218,101 @@
             startingLineNumber = "132"
             endingLineNumber = "132"
             landmarkName = "pushToBattleDetailsVC()"
-            landmarkType = "5">
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+            timestampString = "496892179.206168"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "ConfirmButtonClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+            timestampString = "496892179.940506"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "ConfirmButtonClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+            timestampString = "496892181.246078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "ConfirmButtonClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+            timestampString = "496892182.95671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "ConfirmButtonClick()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Whereami.GameChallengeSelectFriendViewController.pushToBattleDetailsVC () -&gt; ()"
+                  symbolName = "Whereami.PublishQuestionRangeViewController.(ConfirmButtonClick () -&gt; ()).(closure #1)"
                   moduleName = "Whereami"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Game/GameChallengeSelectFriendViewController.swift"
-                  timestampString = "495463459.514151"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+                  timestampString = "496907405.96492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "132"
-                  endingLineNumber = "132"
-                  offsetFromSymbolStart = "1788">
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1404">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Whereami.GameChallengeSelectFriendViewController.(pushToBattleDetailsVC () -&gt; ()).(closure #1)"
+                  symbolName = "Whereami.PublishQuestionRangeViewController.(ConfirmButtonClick () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "Whereami"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Game/GameChallengeSelectFriendViewController.swift"
-                  timestampString = "495463459.514324"
+                  urlString = "file:///Users/wuqifei/whereAmI/Whereami/Controller/Photo/PublishQuestionRangeViewController.swift"
+                  timestampString = "496907405.967586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "33">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -595,14 +323,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Whereami/Controller/Personal/TourRecordsViewController.swift"
-            timestampString = "495463391.492314"
+            filePath = "Whereami/Controller/Photo/PublishEditGameViewController.swift"
+            timestampString = "496893957.569163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "doneMyQuestion()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Whereami/Controller/Photo/PublishEditGameViewController.swift"
+            timestampString = "496893958.804361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "doneMyQuestion()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

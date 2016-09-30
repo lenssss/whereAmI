@@ -12,18 +12,13 @@ class GameEndGameViewController: UIViewController,UITableViewDataSource,UITableV
     var icon:UIImageView? = nil
     var tableView:UITableView? = nil
     var restartButton:UIButton? = nil
-    var battleId:String? = nil
-    var battleEndModel:BattleEndModel? = nil
+    
+    var battleId:String? = nil //战斗id
+    var battleEndModel:BattleEndModel? = nil //战斗结束模型
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.respondsToSelector(Selector("automaticallyAdjustsScrollViewInsets")) {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        
-        if self.respondsToSelector(Selector("edgesForExtendedLayout")) {
-            self.edgesForExtendedLayout = .None
-        }
+        self.setConfig()
         self.setUI()
         self.getBattleEndModel()
     }

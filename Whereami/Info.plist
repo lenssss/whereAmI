@@ -75,10 +75,18 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>cameraDesciption</string>
+	<key>NSContactsUsageDescription</key>
+	<string>contactsDesciption</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location Always</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location When In Use</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDesciption</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>photoLibraryDesciption</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

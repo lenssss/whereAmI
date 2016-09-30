@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum GameButtonType:Int {
+enum GameEvaluateButtonType:Int {
     case Boring = 1
     case Fun = 2
     case Continue = 3
@@ -61,7 +61,7 @@ class GameEvaluateBottomView: UIView {
 //        self.collectionButton?.setTitle("+", forState: .Normal)
         self.collectionButton?.setTitleColor(UIColor.blueColor(), forState: .Normal)
         self.collectionButton?.setBackgroundImage(UIImage(named: "collect"), forState: .Normal)
-        self.collectionButton?.tag = GameButtonType.Collect.rawValue
+        self.collectionButton?.tag = GameEvaluateButtonType.Collect.rawValue
         self.collectionButton?.rac_signalForControlEvents(.TouchUpInside).subscribeNext({ (button) in
             self.callBack!(button as! UIButton)
         })
@@ -69,7 +69,7 @@ class GameEvaluateBottomView: UIView {
         
         self.boringButton = UIButton(type: .System)
         self.boringButton?.setTitle(NSLocalizedString("Borign",tableName:"Localizable", comment: ""), forState: .Normal)
-        self.boringButton?.tag = GameButtonType.Boring.rawValue
+        self.boringButton?.tag = GameEvaluateButtonType.Boring.rawValue
         self.boringButton?.layer.masksToBounds = true
         self.boringButton?.layer.cornerRadius = 10
         self.boringButton?.setBackgroundImage(UIImage(named: "boring"), forState: .Normal)
@@ -81,7 +81,7 @@ class GameEvaluateBottomView: UIView {
         
         self.interestingButton = UIButton(type: .System)
         self.interestingButton?.setTitle(NSLocalizedString("Fun",tableName:"Localizable", comment: ""), forState: .Normal)
-        self.interestingButton?.tag = GameButtonType.Fun.rawValue
+        self.interestingButton?.tag = GameEvaluateButtonType.Fun.rawValue
         self.interestingButton?.layer.masksToBounds = true
         self.interestingButton?.layer.cornerRadius = 10
         self.interestingButton?.setBackgroundImage(UIImage(named: "interesting"), forState: .Normal)
@@ -93,7 +93,7 @@ class GameEvaluateBottomView: UIView {
         
         self.continueButton = UIButton(type: .System)
         self.continueButton?.setTitle(NSLocalizedString("Continue",tableName:"Localizable", comment: ""), forState: .Normal)
-        self.continueButton?.tag = GameButtonType.Continue.rawValue
+        self.continueButton?.tag = GameEvaluateButtonType.Continue.rawValue
         self.continueButton?.layer.masksToBounds = true
         self.continueButton?.layer.cornerRadius = 10
         self.continueButton?.setBackgroundImage(UIImage(named: "continue"), forState: .Normal)
@@ -106,7 +106,7 @@ class GameEvaluateBottomView: UIView {
         self.reportButton = UIButton(type: .System)
         self.reportButton?.setTitle(NSLocalizedString("report",tableName:"Localizable", comment: ""), forState: .Normal)
         self.reportButton?.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.reportButton?.tag = GameButtonType.report.rawValue
+        self.reportButton?.tag = GameEvaluateButtonType.report.rawValue
         self.reportButton?.rac_signalForControlEvents(.TouchUpInside).subscribeNext({ (button) in
             self.callBack!(button as! UIButton)
         })
